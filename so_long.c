@@ -12,8 +12,8 @@ int main(int argc, char **argv)
         if (map_validation(&game, argv[1]))
         {
             game.mlx_ptr = mlx_init();
-            game.mlx_win = mlx_new_window(game.mlx_ptr, 500, 500, "SO_LONG");
             img_setup(&game);
+            game.mlx_win = mlx_new_window(game.mlx_ptr, game.img_width * game.map_width, game.img_height * game.map_height, "SO_LONG");
             map_to_win(&game);
             mlx_loop(game.mlx_ptr);
         }
