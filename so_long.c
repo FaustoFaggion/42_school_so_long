@@ -15,6 +15,8 @@ int main(int argc, char **argv)
             img_setup(&game);
             game.mlx_win = mlx_new_window(game.mlx_ptr, game.img_width * game.map_width, game.img_height * game.map_height, "SO_LONG");
             map_to_win(&game);
+            game_setup(&game);
+            mlx_hook(game.mlx_win, 2, 1L<<0, &events_key, &game);
             mlx_loop(game.mlx_ptr);
         }
     }

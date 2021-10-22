@@ -19,9 +19,9 @@ SRC		=	so_long.c \
 					map_validation.c \
 					map_to_win.c \
 					img_setup.c \
-					#key_events.c \
+					events_key.c \
 					game_setup.c \
-					game_exit.c
+					#game_exit.c
 
 #SRC				= 	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
