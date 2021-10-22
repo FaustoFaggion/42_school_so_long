@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
     t_data  game;
 
-    
+    setbuf(stdout, NULL);
     if (argc == 2)
     {
         

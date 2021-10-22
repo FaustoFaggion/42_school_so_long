@@ -42,9 +42,9 @@ static void key_right(t_data *game)
 
 int    key_events(int key, t_data *game)
 {
-    printf("%d", key);
+    printf("Movements: %d\n", game->moviments);
     if (key == KEY_ESC)
-        mlx_destroy_window(game->mlx_ptr, game->mlx_win);
+        game_exit(game);
     else if (key == KEY_UP || key == KEY_W)
         key_up(game);
     else if (key == KEY_DOWN || key == KEY_S)

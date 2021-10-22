@@ -65,6 +65,6 @@ void    game_setup(t_data *game);
 
 int    win_events(t_data *game);
 
-int    game_exit(t_data *game);
+void    game_exit(t_data *game);
 
 #endif

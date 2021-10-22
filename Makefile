@@ -21,7 +21,7 @@ SRC		=	so_long.c \
 					img_setup.c \
 					key_events.c \
 					game_setup.c \
-					#game_exit.c
+					game_exit.c
 
 #SRC				= 	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
