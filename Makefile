@@ -19,7 +19,7 @@ SRC		=	so_long.c \
 					map_validation.c \
 					map_to_win.c \
 					img_setup.c \
-					events_key.c \
+					key_events.c \
 					game_setup.c \
 					#game_exit.c
 

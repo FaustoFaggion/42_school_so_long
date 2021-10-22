@@ -15,6 +15,7 @@ void    game_setup(t_data *game)
             {
                 game->player_x = x;
                 game->player_y = y;
+                break;
             }
             y++;
         }

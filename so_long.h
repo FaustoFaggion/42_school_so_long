@@ -57,7 +57,7 @@ int     map_validation(t_data *game, char *file_path);
 
 void    map_to_win(t_data *game);
 
-int     events_key(int key, t_data *game);
+int     key_events(int key, t_data *game);
 
 void    img_setup(t_data *game);
 
