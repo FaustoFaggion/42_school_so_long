@@ -17,6 +17,7 @@ int main(int argc, char **argv)
             map_to_win(&game);
             game_setup(&game);
             mlx_hook(game.mlx_win, 2, 1L<<0, key_events, &game);
+             mlx_hook(game.mlx_win, 17, 1L<<0, game_exit, &game);
             mlx_loop(game.mlx_ptr);
         }
     }

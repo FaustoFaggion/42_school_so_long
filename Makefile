@@ -30,6 +30,8 @@ OBJ				= 	$(SRC:.c=.o)
 
 HEADER			= 	so_long.h
 
+FS				=   -fsanitize=address -g3 
+
 all:	$(NAME)
 
 $(NAME):	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
@@ -64,9 +66,8 @@ re: fclean all
 #run_bonus:
 #	gcc $(FLAGS) main_printf_bonus.c $(NAME) && ./a.out
 
-#sanitize:
-#	gcc $(CFLAGS) -fsanitize=address -g3 *.c && ./a.out
+sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
+	$(CC) $(FS) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 
-#valgrind:
-#	gcc *.c
-#	valgrind ./a.out
+valgrind: $(NAME)
+	valgrind ./so_long ./basic.ber

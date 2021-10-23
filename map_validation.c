@@ -91,8 +91,10 @@ int     map_validation(t_data *game, char *file_path)
     game->map_p_count = 0;
     game->map_height = 0;
 	game->map_width = (int)ft_strlen(game->map[0]);
-    while(game->map[game->map_height])
-        game->map_height++;
+    while (game->map[game->map_height])
+	{
+    	game->map_height++;
+	}
 	if (game->map)
     {
 		if (position_validation(game) && wall_validation(game) 

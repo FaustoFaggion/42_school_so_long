@@ -62,7 +62,7 @@ int    key_events(int key, t_data *game)
     if (game->map[game->player_y][game->player_x] == 'E' && game->map_c_count == 0)
     {
         printf("Game Finished!!");       
-        mlx_destroy_window(game->mlx_ptr, game->mlx_win);
+        game_exit(game);
     }
     return (0);
 }
