@@ -7,6 +7,7 @@ static void key_up(t_data *game)
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_free_space, game->player_x * game->img_width, (game->player_y) * game->img_height);
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, game->player_x * game->img_width, (game->player_y - 1) * game->img_height);
         game->player_y = game->player_y - 1;
+        printf("Movements: %d\n", game->moviments);
     }
 }
 
@@ -17,6 +18,7 @@ static void key_down(t_data *game)
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_free_space, game->player_x * game->img_width, (game->player_y) * game->img_height);
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, game->player_x * game->img_width, (game->player_y + 1) * game->img_height);
         game->player_y = game->player_y + 1;
+        printf("Movements: %d\n", game->moviments);
     }
 }
 
@@ -27,6 +29,7 @@ static void key_left(t_data *game)
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_free_space, game->player_x * game->img_width, (game->player_y) * game->img_height);
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, (game->player_x - 1) * game->img_width, (game->player_y) * game->img_height);
         game->player_x = game->player_x - 1;
+        printf("Movements: %d\n", game->moviments);
     }
 }
 
@@ -37,12 +40,12 @@ static void key_right(t_data *game)
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_free_space, game->player_x * game->img_width, (game->player_y) * game->img_height);
         mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, (game->player_x + 1) * game->img_width, (game->player_y) * game->img_height);
         game->player_x = game->player_x + 1;
+        printf("Movements: %d\n", game->moviments);
     }
 }
 
 int    key_events(int key, t_data *game)
 {
-    printf("Movements: %d\n", game->moviments);
     if (key == KEY_ESC)
         game_exit(game);
     else if (key == KEY_UP || key == KEY_W)

@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-static void    ft_clear_split(char **ptr)
+static void	ft_clear_split(char **ptr)
 {
 	int	i;
 
@@ -10,7 +10,7 @@ static void    ft_clear_split(char **ptr)
 	free(ptr);
 }
 
-int game_exit(t_data *game)
+int	game_exit(t_data *game)
 {
 	mlx_destroy_image(game->mlx_ptr, game->img_free_space);
 	mlx_destroy_image(game->mlx_ptr, game->img_wall);
@@ -22,5 +22,4 @@ int game_exit(t_data *game)
 	free(game->mlx_ptr);
 	ft_clear_split(game->map);
 	exit(0);
-	return (0);
 }

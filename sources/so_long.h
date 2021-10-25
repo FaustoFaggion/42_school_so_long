@@ -1,8 +1,8 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include               "./libraries/minilibx/mlx.h"
-# include               "./libraries/libft/libft.h"
+# include               "../libraries/minilibx/mlx.h"
+# include               "../libraries/libft/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 
