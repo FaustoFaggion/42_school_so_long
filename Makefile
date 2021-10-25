@@ -7,6 +7,9 @@ LIBFT			= 	$(PATH_LIBFT)/libft.a
 MLX_PATH		= 	./libraries/minilibx
 MLX				= 	$(MLX_PATH)/libmlx.a
 
+I_OBJ			=	-I ./ -I ./libraries/minilibx/ -I ./libraries/libft/
+LINKS			=	-I ./ -I ./libraries/minilibx/ -L./libraries/minilibx/ -lmlx -I ./libraries/libft/ -L./libraries/libft/ -lft
+
 #lx11- controla video lm- matemática
 
 CC				= 	clang
@@ -37,23 +40,23 @@ SRC_FILES_BONUS	=	so_long.c \
 SRC_BONUS				= 	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 
 OBJ_DIR			= 	objects
-OBJ				= 	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
+OBJ				= 	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 OBJ_DIR_BONUS	= 	objects_bonus
-OBJ_BONUS		= 	$(SRC:$(SRC_DIR_BONUS)%.c=$(OBJ_DIR_BONUS)/%.o)
+OBJ_BONUS		= 	$(SRC:$(SRC_DIR_BONUS)/%.c=$(OBJ_DIR_BONUS)/%.o)
 
-HEADER			= 	$(SRC_DIR)/so_long.h
-NEADER			=	$(SRC_DIR_BONUS)/so_long_bonus.h
+HEADER			= 	so_long.h
+HEADER			=	$(SRC_DIR_BONUS)/so_long_bonus.h
 
 FS				=   -fsanitize=address -g3 
 
 all:	$(NAME)
 
 $(NAME):	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ)  $(MLX_FLAGS) $(LINKS) -o $(NAME)
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(I_OBJ)
 
 $(LIBFT):
 	make -C $(PATH_LIBFT)

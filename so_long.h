@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/25 16:24:42 by fausto           ###   ########.fr       */
+/*   Created: 2021/10/25 16:21:41 by fausto            #+#    #+#             */
+/*   Updated: 2021/10/25 16:34:27 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libraries/minilibx/mlx.h"
-# include "../libraries/libft/libft.h"
+# include				"mlx.h"
+# include				"libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 

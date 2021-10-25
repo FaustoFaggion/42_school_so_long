@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
+/*   Updated: 2021/10/25 16:21:29 by fausto           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static int	position_validation(t_data *game)
@@ -83,23 +95,23 @@ static int	extension_validation(char *file)
 }
 
 // *file path = argv[1]
-int     map_validation(t_data *game, char *file_path)
+int	map_validation(t_data *game, char *file_path)
 {
-    game->map_e_count = 0;
+	game->map_e_count = 0;
 	game->map_s_count = 0;
 	game->map_c_count = 0;
-    game->map_p_count = 0;
-    game->map_height = 0;
+	game->map_p_count = 0;
+	game->map_height = 0;
 	game->map_width = (int)ft_strlen(game->map[0]);
-    while (game->map[game->map_height])
+	while (game->map[game->map_height])
 	{
-    	game->map_height++;
+		game->map_height++;
 	}
 	if (game->map)
-    {
+	{
 		if (position_validation(game) && wall_validation(game) 
 			&& characters_validation(game) && extension_validation(file_path))
 			return (1);
-    }
-	return (0);   
+	}
+	return (0);
 }
