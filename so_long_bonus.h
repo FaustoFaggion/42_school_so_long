@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 14:09:14 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/26 17:31:26 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,22 @@
 # define EXIT			"./images/exit.xpm" 
 # define PLAYER			"./images/player.xpm" 
 # define PATROL			"./images/patrol.xpm"
-# define MOV			"./images/moviments.xpm"
- 
+# define SCORE_S		"./images/score_s.xpm"
+# define SCORE_C		"./images/score_c.xpm"
+# define SCORE_O		"./images/score_o.xpm"
+# define SCORE_R		"./images/score_r.xpm"
+# define SCORE_E		"./images/score_e.xpm"
+# define SCORE_0		"./images/score_0.xpm"
+# define SCORE_1		"./images/score_1.xpm"
+# define SCORE_2		"./images/score_2.xpm"
+# define SCORE_3		"./images/score_3.xpm"
+# define SCORE_4		"./images/score_4.xpm"
+# define SCORE_5		"./images/score_5.xpm"
+# define SCORE_6		"./images/score_6.xpm"
+# define SCORE_7		"./images/score_7.xpm"
+# define SCORE_8		"./images/score_8.xpm"
+# define SCORE_9		"./images/score_9.xpm"
+
 # define KEY_ESC		65307
 # define KEY_W			119
 # define KEY_S			115 
@@ -62,6 +76,16 @@ typedef struct	s_data
 	int		player_x;
 	int		player_y;
 	int		moviments;
+	void	*score_img;
+	void	*score;
+	void	*score_1;
+	void	*score_2;
+	void	*score_3;
+	void	*score_4;
+	char	*score_addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 	int		patrol_mov;
 
 }			t_data;
