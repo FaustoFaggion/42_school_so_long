@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:24 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 12:23:17 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/26 14:06:59 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	draw_map(t_data *game, int x)
 		else if (game->map[y][x] == 'E')
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_exit, x * game->img_width, (y + 1) * game->img_height);
 		else if (game->map[y][x] == 'V')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, x * game->img_width, (y + 1) * game->img_height);
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_patrol, x * game->img_width, (y + 1) * game->img_height);
 		y++;
 	}
 }

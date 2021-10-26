@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 12:21:38 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/26 14:09:14 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define FREE_SPACE		"/home/fausto/42SP/so_long/images/free_space.xpm"
-# define COLLECTABLE	"/home/fausto/42SP/so_long/images/collectable.xpm"
-# define WALL			"/home/fausto/42SP/so_long/images/wall.xpm" 
-# define EXIT			"/home/fausto/42SP/so_long/images/exit.xpm" 
-# define PLAYER			"/home/fausto/42SP/so_long/images/player.xpm" 
-# define PATROL			"/home/fausto/42SP/so_long/images/patrol.xpm"
-# define MOV			"/home/fausto/42SP/so_long/images/moviments.xpm"
+# define FREE_SPACE		"./images/free_space.xpm"
+# define COLLECTABLE	"./images/collectable.xpm"
+# define WALL			"./images/wall.xpm" 
+# define EXIT			"./images/exit.xpm" 
+# define PLAYER			"./images/player.xpm" 
+# define PATROL			"./images/patrol.xpm"
+# define MOV			"./images/moviments.xpm"
  
 # define KEY_ESC		65307
 # define KEY_W			119

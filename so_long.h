@@ -6,23 +6,23 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:41 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 09:56:17 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/26 14:11:23 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include				"mlx.h"
-# include				"libft.h"
+# include "mlx.h"
+# include "libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 
-# define FREE_SPACE		"/home/fausto/42SP/so_long/images/free_space.xpm"
-# define COLLECTABLE	"/home/fausto/42SP/so_long/images/collectable.xpm"
-# define WALL			"/home/fausto/42SP/so_long/images/wall.xpm" 
-# define EXIT			"/home/fausto/42SP/so_long/images/exit.xpm" 
-# define PLAYER			"/home/fausto/42SP/so_long/images/player.xpm" 
+# define FREE_SPACE		"./images/free_space.xpm"
+# define COLLECTABLE	"./images/collectable.xpm"
+# define WALL			"./images/wall.xpm" 
+# define EXIT			"./images/exit.xpm" 
+# define PLAYER			"./images/player.xpm" 
 
 # define KEY_ESC		65307
 # define KEY_W			119
