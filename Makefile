@@ -56,10 +56,10 @@ all:	$(NAME)
 
 bonus:	$(NAME_BONUS)
 
-$(NAME):	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
+$(NAME):	$(LIBFT) $(MLX) $(OBJ_DIR) $(OBJ) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJ)  $(MLX_FLAGS) $(LINKS) -o $(NAME)
 
-$(NAME_BONUS):	$(LIBFT) $(MLX) $(OBJ_BONUS) $(HEADER_BONUS)
+$(NAME_BONUS):	$(LIBFT) $(MLX) $(OBJ_DIR_BONUS) $(OBJ_BONUS) $(HEADER_BONUS)
 	$(CC) $(CFLAGS) $(OBJ_BONUS)  $(MLX_FLAGS) $(LINKS) -o $(NAME_BONUS)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
@@ -74,9 +74,17 @@ $(LIBFT):
 $(MLX):
 	make -C $(MLX_PATH)
 
+$(OBJ_DIR):
+	mkdir objects
+
+$(OBJ_DIR_BONUS):
+	mkdir objects_bonus
+
 clean:
 	rm -rf $(OBJ)
+	rm -rf $(OBJ_DIR)
 	rm -rf $(OBJ_BONUS)
+	rm -rf $(OBJ_DIR_BONUS)
 	make -C $(PATH_LIBFT) clean
 	make -C $(MLX_PATH) clean
 
