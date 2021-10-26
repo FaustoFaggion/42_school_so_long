@@ -29,33 +29,43 @@ SRC_FILES		=	so_long.c \
 SRC				= 	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 SRC_DIR_BONUS	=	sources_bonus
-SRC_FILES_BONUS	=	so_long.c \
-					map_built.c \
-					map_validation.c \
-					map_to_win.c \
-					img_setup.c \
-					key_events.c \
-					game_setup.c \
-					game_exit.c
+SRC_FILES_BONUS	=	so_long_bonus.c \
+					map_built_bonus.c \
+					map_validation_bonus.c \
+					img_setup_bonus.c \
+					map_to_win_bonus.c \
+					game_setup_bonus.c \
+					key_events_bonus.c \
+					game_exit_bonus.c \
+					#patrol_mov.c \
+
 SRC_BONUS				= 	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 
 OBJ_DIR			= 	objects
 OBJ				= 	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 OBJ_DIR_BONUS	= 	objects_bonus
-OBJ_BONUS		= 	$(SRC:$(SRC_DIR_BONUS)/%.c=$(OBJ_DIR_BONUS)/%.o)
+OBJ_BONUS		= 	$(SRC_BONUS:$(SRC_DIR_BONUS)/%.c=$(OBJ_DIR_BONUS)/%.o)
 
 HEADER			= 	so_long.h
-HEADER			=	$(SRC_DIR_BONUS)/so_long_bonus.h
+HEADER_BONUS	=	so_long_bonus.h
 
-FS				=   -fsanitize=address -g3 
+FS				=	-fsanitize=address -g3 
 
 all:	$(NAME)
+
+bonus:	$(NAME_BONUS)
 
 $(NAME):	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJ)  $(MLX_FLAGS) $(LINKS) -o $(NAME)
 
+$(NAME_BONUS):	$(LIBFT) $(MLX) $(OBJ_BONUS) $(HEADER_BONUS)
+	$(CC) $(CFLAGS) $(OBJ_BONUS)  $(MLX_FLAGS) $(LINKS) -o $(NAME_BONUS)
+
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(I_OBJ)
+
+$(OBJ_DIR_BONUS)/%.o:	$(SRC_DIR_BONUS)/%.c $(HEADER_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(I_OBJ)
 
 $(LIBFT):
@@ -66,11 +76,13 @@ $(MLX):
 
 clean:
 	rm -rf $(OBJ)
+	rm -rf $(OBJ_BONUS)
 	make -C $(PATH_LIBFT) clean
 	make -C $(MLX_PATH) clean
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(NAME_BONUS)
 	make -C $(PATH_LIBFT) fclean
 
 re: fclean all

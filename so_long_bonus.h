@@ -6,15 +6,15 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/25 16:24:42 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/26 12:21:38 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libraries/minilibx/mlx.h"
-# include "../libraries/libft/libft.h"
+# include "mlx.h"
+# include "libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 
@@ -23,7 +23,9 @@
 # define WALL			"/home/fausto/42SP/so_long/images/wall.xpm" 
 # define EXIT			"/home/fausto/42SP/so_long/images/exit.xpm" 
 # define PLAYER			"/home/fausto/42SP/so_long/images/player.xpm" 
-
+# define PATROL			"/home/fausto/42SP/so_long/images/patrol.xpm"
+# define MOV			"/home/fausto/42SP/so_long/images/moviments.xpm"
+ 
 # define KEY_ESC		65307
 # define KEY_W			119
 # define KEY_S			115 
@@ -53,29 +55,32 @@ typedef struct	s_data
 	void	*img_wall;
 	void	*img_exit;
 	void	*img_player;
+	void	*img_patrol;
+	void	*img_moviments;
 	int		img_width;
 	int		img_height;
 	int		player_x;
 	int		player_y;
 	int		moviments;
+	int		patrol_mov;
 
 }			t_data;
 
 
-char	**map_built(t_data *game, char *flie_path);
+char	**map_built_bonus(t_data *game, char *flie_path);
 
-int		map_validation(t_data *game, char *file_path);
+int		map_validation_bonus(t_data *game, char *file_path);
 
-void	map_to_win(t_data *game);
+void	map_to_win_bonus(t_data *game);
 
-int		key_events(int key, t_data *game);
+void	img_setup_bonus(t_data *game);
 
-void	img_setup(t_data *game);
+void	game_setup_bonus(t_data *game);
 
-void	game_setup(t_data *game);
+int		key_events_bonus(int key, t_data *game);
+//int		win_events(t_data *game);
 
-int		win_events(t_data *game);
+int		game_exit_bonus(t_data *game);
 
-int		game_exit(t_data *game);
-
+//void	patrol_mov(t_data *game);
 #endif
