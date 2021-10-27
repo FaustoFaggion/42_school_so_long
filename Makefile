@@ -38,8 +38,9 @@ SRC_FILES_BONUS	=	so_long_bonus.c \
 					key_events_bonus.c \
 					game_exit_bonus.c \
 					patrol_mov.c \
-					player_var_i_0.c \
-					player_var_j_0.c
+					patrol_mov_x.c \
+					patrol_mov_y.c \
+					score_bonus.c
 
 SRC_BONUS				= 	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 

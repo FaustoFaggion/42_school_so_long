@@ -6,13 +6,13 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:10 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 14:50:08 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/27 17:10:27 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	score_print(t_data *game, int n)
+/*static void	score_print(t_data *game, int n)
 {
 	if (n == 0)
 		game->score_img = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_0, &game->img_width, &game->img_height);	
@@ -55,7 +55,7 @@ static void	score(t_data *game)
 		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, x * game->img_width, 0 * game->img_height);	
 		dec = dec / 10;
 	}
-}
+}*/
 
 static void	key_up(t_data *game)
 {
@@ -77,7 +77,7 @@ static void	key_up(t_data *game)
 			game->player_y = game->player_y - 1;
 			game->moviments++;
 			map_to_win_bonus(game);
-			score(game);
+			//score(game);
 		}
 	}
 }
@@ -102,7 +102,7 @@ static void	key_down(t_data *game)
 			game->player_y = game->player_y + 1;
 			game->moviments++;
 			map_to_win_bonus(game);
-			score(game);
+			//score(game);
 		}
 	}
 }
@@ -127,7 +127,7 @@ static void	key_left(t_data *game)
 			game->player_x = game->player_x - 1;
 			game->moviments++;
 			map_to_win_bonus(game);
-			score(game);
+			//score(game);
 		}
 	}
 }
@@ -147,7 +147,7 @@ static void	key_right(t_data *game)
 			game->player_x = game->player_x + 1;
 			game->moviments++;
 			map_to_win_bonus(game);
-			score(game);
+			//score(game);
 		}
 	}
 }

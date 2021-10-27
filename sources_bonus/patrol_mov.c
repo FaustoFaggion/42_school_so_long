@@ -1,27 +1,41 @@
 #include "so_long_bonus.h"
 
-static void player_find(t_data *game, int x, int y)
+static void	game_over(t_data *game)
+{
+	int			x;
+	int			y;
+
+	x = 0;
+	while (x < game->map_width)
+	{
+		y = 0;
+		while (y < game->map_height)
+		{
+			if (game->map[y][x] == 'V')
+			{	
+				if (game->player_x == x && game->player_y == y)
+				{
+					printf("GAME OVER!!!");
+					game_exit_bonus(game);
+				}
+			}
+			y++;
+		}
+		x++;
+	}	
+}
+
+static void	patrol_decision(t_data *game, int x, int y)
 {
 	int	i;
 	int j;
 
 	i = game->player_x - x;
-	j = game->player_y - y;
-	if ( i == 0)
-		player_var_i_0(game, x, y);
-	if ( j == 0)
-		player_var_j_0(game, x, y);
-}
-
-static void	patrol_decision(t_data *game, int x, int y)
-{
-	player_find(game, x, y);
-	
-	/*if (game->map[y + 1][x] == '0')
-	{	
-		game->map[y][x] = '0';
-		game->map[y + 1][x] = 'v';
-	}*/
+	j = (game->player_y - 1) - y;
+	if ( i == 0 || j < i)
+		patrol_mov_x(game, x, y);
+	if ( j == 0 || i < j)
+		patrol_mov_y(game, x, y);
 }
 
 static void	map_upper(t_data *game)
@@ -49,11 +63,12 @@ int	patrol_mov(t_data *game)
 {
 	int			x;
 	int			y;
-	static int	speed = 0;
+	static int	speed;
 
+	game_over(game);
 	speed++;
 	x = 0;
-	if (speed == 40000)
+	if (speed == 10000)
 	{
 		while (x < game->map_width)
 		{

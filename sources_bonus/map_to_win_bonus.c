@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:24 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 17:17:05 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/27 17:53:04 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ static void	draw_map(t_data *game, int x)
 void	map_to_win_bonus(t_data *game)
 {
 	int	x;
-	
-	draw_score(game);
+	if (game->moviments == 0)
+		draw_score(game);	
+	if (game->moviments != 0)
+		score_bonus(game);
 	x = 0;
 	while (x < game->map_width)
 	{

@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 14:13:13 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/27 17:34:46 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ typedef struct	s_data
 	void	*img_exit;
 	void	*img_player;
 	void	*img_patrol;
-	void	*img_moviments;
 	int		img_width;
 	int		img_height;
 	int		player_x;
@@ -107,7 +106,9 @@ int		game_exit_bonus(t_data *game);
 
 int		patrol_mov(t_data *game);
 
-void 	player_var_i_0(t_data *game, int i, int j);
+void 	patrol_mov_x(t_data *game, int i, int j);
 
-void 	player_var_j_0(t_data *game, int i, int j);
+void 	patrol_mov_y(t_data *game, int i, int j);
+
+void	score_bonus(t_data *game);
 #endif
