@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 17:31:26 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/27 14:13:13 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 # define FREE_SPACE		"./images/free_space.xpm"
 # define COLLECTABLE	"./images/collectable.xpm"
-# define WALL			"./images/wall.xpm" 
-# define EXIT			"./images/exit.xpm" 
-# define PLAYER			"./images/player.xpm" 
+# define WALL			"./images/wall.xpm"
+# define EXIT			"./images/exit.xpm"
+# define PLAYER			"./images/player.xpm"
 # define PATROL			"./images/patrol.xpm"
 # define SCORE_S		"./images/score_s.xpm"
 # define SCORE_C		"./images/score_c.xpm"
@@ -102,9 +102,12 @@ void	img_setup_bonus(t_data *game);
 void	game_setup_bonus(t_data *game);
 
 int		key_events_bonus(int key, t_data *game);
-//int		win_events(t_data *game);
 
 int		game_exit_bonus(t_data *game);
 
-//void	patrol_mov(t_data *game);
+int		patrol_mov(t_data *game);
+
+void 	player_var_i_0(t_data *game, int i, int j);
+
+void 	player_var_j_0(t_data *game, int i, int j);
 #endif

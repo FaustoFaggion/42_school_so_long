@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 18:22:51 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/27 13:00:36 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	main(int argc, char **argv)
 			img_setup_bonus(&game);
 			game.mlx_win = mlx_new_window(game.mlx_ptr, game.img_width * game.map_width, game.img_height * (game.map_height + 1), "SO_LONG");
 			map_to_win_bonus(&game);
-			//patrol_mov (&game);
 			game_setup_bonus(&game);
 			mlx_hook(game.mlx_win, 2, 1L<<0, key_events_bonus, &game);
 			mlx_hook(game.mlx_win, 17, 1L<<0, game_exit_bonus, &game);
+			mlx_loop_hook(game.mlx_ptr, patrol_mov, &game);
 			mlx_loop(game.mlx_ptr);
 		}
 	}
