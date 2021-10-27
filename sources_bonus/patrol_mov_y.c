@@ -16,7 +16,7 @@ void	patrol_mov_y(t_data *game, int x, int y)
 				game->map[y][x + 1] = 'v';
 			}
 			else if (game->map[y][x + 1] != '1' && game->map[y][x + 1] == 'C'
-				&& game->map[y][x + 2] == '0')
+				&& (game->map[y][x + 2] == '0' || game->map[y][x + 2] == 'P'))
 			{
 				game->map[y][x] = '0';
 				game->map[y][x + 2] = 'v';
@@ -41,7 +41,7 @@ void	patrol_mov_y(t_data *game, int x, int y)
 				game->map[y][x - 1] = 'v';
 			}
 			else if (game->map[y][x - 1] != '1' && game->map[y][x - 1] == 'C'
-				 && game->map[y][x - 2] == '0')
+				 && (game->map[y][x - 2] == '0' || game->map[y][x - 2] == 'P'))
 			{
 				game->map[y][x] = '0';
 				game->map[y][x - 2] = 'v';

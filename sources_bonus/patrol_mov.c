@@ -2,8 +2,8 @@
 
 static void	game_over(t_data *game)
 {
-	int			x;
-	int			y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x < game->map_width)
@@ -12,7 +12,7 @@ static void	game_over(t_data *game)
 		while (y < game->map_height)
 		{
 			if (game->map[y][x] == 'V')
-			{	
+			{
 				if (game->player_x == x && game->player_y == y)
 				{
 					printf("GAME OVER!!!");
@@ -22,7 +22,7 @@ static void	game_over(t_data *game)
 			y++;
 		}
 		x++;
-	}	
+	}
 }
 
 static void	patrol_decision(t_data *game, int x, int y)
@@ -32,9 +32,9 @@ static void	patrol_decision(t_data *game, int x, int y)
 
 	i = game->player_x - x;
 	j = (game->player_y - 1) - y;
-	if ( i == 0 || j < i)
+	if (i == 0 || j < i)
 		patrol_mov_x(game, x, y);
-	if ( j == 0 || i < j)
+	else if (j == 0 || i < j )
 		patrol_mov_y(game, x, y);
 }
 
@@ -44,19 +44,19 @@ static void	map_upper(t_data *game)
 	int	y;
 
 	x = 0;
-		while (x < game->map_width)
+	while (x < game->map_width)
+	{
+		y = 0;
+		while (y < game->map_height)
 		{
-			y = 0;
-			while (y < game->map_height)
-			{
-				if (game->map[y][x] == 'v')
-				{	
-					game->map[y][x] = 'V';
-				}
-				y++;
+			if (game->map[y][x] == 'v')
+			{	
+				game->map[y][x] = 'V';
 			}
-			x++;
-		}	
+			y++;
+		}
+		x++;
+	}
 }
 
 int	patrol_mov(t_data *game)
@@ -76,9 +76,7 @@ int	patrol_mov(t_data *game)
 			while (y < game->map_height)
 			{
 				if (game->map[y][x] == 'V')
-				{	
 					patrol_decision(game, x, y);
-				}
 				y++;
 			}
 			x++;

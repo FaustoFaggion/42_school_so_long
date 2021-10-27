@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:59 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 17:48:14 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/27 19:17:44 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	game_setup_bonus(t_data *game)
 			if(game->map[y][x] == 'P')
 			{
 				game->player_x = x;
-				game->player_y = y + 1;
+				game->player_y = y;
 				break;
 			}
 			y++;
