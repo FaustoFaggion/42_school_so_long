@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:59 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 19:17:44 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/28 19:55:56 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	game_setup_bonus(t_data *game)
 	int y;
 
 	x = 0;
-	while (x < game->map_width)
+	while (x < game->map_line)
 	{
 		y = 0;
-		while (y < game->map_height)
+		while (y < game->map_col)
 		{
-			if(game->map[y][x] == 'P')
+			if(game->map[x][y] == 'P')
 			{
-				game->player_x = x;
-				game->player_y = y;
+				game->player_line = x;
+				game->player_col = y;
 				break;
 			}
 			y++;

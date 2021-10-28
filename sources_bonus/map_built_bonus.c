@@ -6,11 +6,34 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 19:43:29 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/28 20:27:28 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+static char	*add_line(char **temp)
+{
+	int 	i;
+	char	*new;
+	char	*swap;
+	
+	i = 0;
+	while ((*temp)[i] != '\n')
+		i++;
+	new = ft_calloc((i + 2), sizeof(char));
+	new[i] = '\n';
+	while ( i > 0)
+	{
+		new[i - 1] = 'S';
+		i--;
+	}
+	swap = *temp;
+	*temp = ft_strjoin(new, swap);
+	free(new);
+	free(swap);
+	return (*temp);
+}
 
 char	**map_built_bonus(t_data *game, char *file_path)
 {
@@ -30,11 +53,12 @@ char	**map_built_bonus(t_data *game, char *file_path)
 			break;
 		swap = temp;
 		temp = ft_strjoin(swap, line);
-		free(swap);
 		free(line);
+		free(swap);
 	}
-	map = ft_split(temp, '\n');
-	free(temp);
+	swap = add_line(&temp);
+	map = ft_split(swap, '\n');
+	free(swap);
 	close(game->map_fd);
 	return (map);
 }

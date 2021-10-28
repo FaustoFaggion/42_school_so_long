@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 17:34:46 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/28 19:55:36 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ typedef struct	s_data
 	int		map_s_count;
 	int		map_c_count;
 	int		map_p_count;
-	int		map_width;
-	int		map_height;
+	int		map_col;
+	int		map_line;
 	void	*img_free_space;
 	void	*img_collectable;
 	void	*img_wall;
@@ -72,8 +72,8 @@ typedef struct	s_data
 	void	*img_patrol;
 	int		img_width;
 	int		img_height;
-	int		player_x;
-	int		player_y;
+	int		player_line;
+	int		player_col;
 	int		moviments;
 	void	*score_img;
 	void	*score;

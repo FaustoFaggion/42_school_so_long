@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:10 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 17:53:39 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/28 19:24:37 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ void	score_bonus(t_data *game)
 {
 	int	n;
 	int	dec;
-	int	x;
+	int	col;
 	
-	x = 9;
+	col = 9;
 	if (game->moviments != 0)
 	{
 		n = game->moviments % 10;
 		score_print(game, n);
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, x * game->img_width, 0 * game->img_height);	
+		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, col * game->img_width, 0 * game->img_height);	
 		dec = game->moviments / 10;
 		while (dec > 0)
 		{
-			x--;
+			col--;
 			n = dec % 10;
 			score_print(game, n);
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, x * game->img_width, 0 * game->img_height);	
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, col * game->img_width, 0 * game->img_height);	
 			dec = dec / 10;
 		}
 	}

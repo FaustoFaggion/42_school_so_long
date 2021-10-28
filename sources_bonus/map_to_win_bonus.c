@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:24 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/27 17:58:20 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/28 19:39:48 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ static void	draw_map(t_data *game, int x)
 	int	y;
 	
 	y = 0;
-	while (y < game->map_height)
+	while (y < game->map_col)
 	{
-		if (game->map[y][x] == '1')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_wall, x * game->img_width, (y + 1) * game->img_height);
-		else if (game->map[y][x] == '0')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_free_space, x * game->img_width, (y + 1) * game->img_height);
-		else if (game->map[y][x] == 'C')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_collectable, x * game->img_width, (y + 1) * game->img_height);
-		else if (game->map[y][x] == 'P')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, x * game->img_width, (y + 1) * game->img_height);
-		else if (game->map[y][x] == 'E')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_exit, x * game->img_width, (y + 1) * game->img_height);
-		else if (game->map[y][x] == 'V')
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_patrol, x * game->img_width, (y + 1) * game->img_height);
+		if (game->map[x][y] == '1')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_wall, y * game->img_width, x * game->img_height);
+		else if (game->map[x][y] == '0')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_free_space, y * game->img_width, x * game->img_height);
+		else if (game->map[x][y] == 'C')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_collectable, y * game->img_width, x * game->img_height);
+		else if (game->map[x][y] == 'P')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_player, y * game->img_width, x * game->img_height);
+		else if (game->map[x][y] == 'E')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_exit, y * game->img_width, x * game->img_height);
+		else if (game->map[x][y] == 'V')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->img_patrol, y * game->img_width, x * game->img_height);
 		y++;
 	}
 }
@@ -60,12 +60,13 @@ static void	draw_map(t_data *game, int x)
 void	map_to_win_bonus(t_data *game)
 {
 	int	x;
+	
 	if (game->moviments == 0)
 		draw_score(game);	
 	if (game->moviments != 0)
 		score_bonus(game);
-	x = 0;
-	while (x < game->map_width)
+	x = 1;
+	while (x < game->map_line)
 	{
 		draw_map(game, x);
 		x++;

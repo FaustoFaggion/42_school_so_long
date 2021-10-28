@@ -13,7 +13,7 @@ LINKS			=	-I ./ -I ./libraries/minilibx/ -L./libraries/minilibx/ -lmlx -I ./libr
 #lx11- controla video lm- matemática
 
 CC				= 	clang
-CFLAGS			= 	-Wall -Werror -Wextra
+CFLAGS			= 	-Wall -Werror -Wextra -g
 MLX_FLAGS		= 	-L. -lXext -L. -lX11 -L. -lm
 
 
@@ -108,4 +108,4 @@ sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 	$(CC) $(FS) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 
 valgrind: $(NAME)
-	valgrind ./so_long ./basic.ber
+	valgrind ./so_long ./maps/basic2.ber
