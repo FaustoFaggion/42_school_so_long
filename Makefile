@@ -42,7 +42,7 @@ SRC_FILES_BONUS	=	so_long_bonus.c \
 					patrol_mov_y.c \
 					score_bonus.c \
 					img_anime.c \
-					#patrol_mov_xy.c
+					patrol_mov_xy.c
 SRC_BONUS				= 	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 
 OBJ_DIR			= 	objects
@@ -109,4 +109,4 @@ sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 	$(CC) $(FS) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 
 valgrind: $(NAME)
-	valgrind ./so_long_bonus ./maps_bonus/basic_bonus2.ber
+	valgrind --leak-check=full --show-leak-kinds=all ./so_long_bonus ./maps_bonus/basic_bonus2.ber

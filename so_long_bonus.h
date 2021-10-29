@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 17:33:00 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 17:44:33 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void 	patrol_mov_x(t_data *game);
 
 void 	patrol_mov_y(t_data *game);
 
-//void	patrol_mov_xy(t_data *game);
+void	patrol_mov_xy(t_data *game);
 
 void	score_bonus(t_data *game);
 

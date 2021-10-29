@@ -97,9 +97,9 @@ void	patrol_mov_xy(t_data *game)
 	{
 		if(xy_neg_free(game))
 			xy_neg_wall(game);	
-		flag = 1
+		flag = 1;
 	}
-	else if (falg == 1))
+	else if (flag == 1)
 	{
 		if (xy_pos_free(game))
 			xy_pos_wall(game);

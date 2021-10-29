@@ -62,8 +62,8 @@ static void	patrol_decision(t_data *game)
 		patrol_mov_x(game);
 	else if (x > y)
 		patrol_mov_y(game);
-	//else if (x == y)
-	//	patrol_mov_xy(game);
+	else if (x == y)
+		patrol_mov_xy(game);
 }
 
 static int	patrol_position(t_data *game, int speed)
@@ -72,7 +72,7 @@ static int	patrol_position(t_data *game, int speed)
 	int	y;
 
 	x = 0;
-	if (speed == 100)
+	if (speed == 400)
 	{
 		while (x < game->map_line)
 		{

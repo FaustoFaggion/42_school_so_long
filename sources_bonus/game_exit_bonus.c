@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:40 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 10:00:20 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 17:54:46 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	game_exit_bonus(t_data *game)
 	mlx_destroy_image(game->mlx_ptr, game->img_free_space);
 	mlx_destroy_image(game->mlx_ptr, game->img_wall);
 	mlx_destroy_image(game->mlx_ptr, game->img_collectable);
+	mlx_destroy_image(game->mlx_ptr, game->img_collectable_2);
 	mlx_destroy_image(game->mlx_ptr, game->img_exit);
 	mlx_destroy_image(game->mlx_ptr, game->img_player);
 	mlx_destroy_image(game->mlx_ptr, game->img_patrol);
