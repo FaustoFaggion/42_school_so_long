@@ -1,60 +1,114 @@
 # include "so_long_bonus.h"
 
-void	patrol_mov_y(t_data *game, int x, int y)
+static int	x_neg_free(t_data *game)
 {
-	int	i;
-	int j;
-
-	i = game->player_line - x;
-	j = game->player_col - y;
-		if (i > 0)
-		{
-			if (game->map[x][y + 1] != '1' && game->map[x][y + 1] != 'C'
-				&& game->map[x][y + 1] != 'v' && game->map[x][y + 1] != 'V')
-			{
-				game->map[x][y] = '0';
-				game->map[x][y + 1] = 'v';
-			}
-			else if (game->map[x][y + 1] != '1' && game->map[x][y + 1] == 'C'
-				&& (game->map[x][y + 2] == '0' || game->map[x][y + 2] == 'P'))
-			{
-				game->map[x][y] = '0';
-				game->map[x][y + 2] = 'v';
-			}
-			else if (game->map[x][y + 1] == '1' && game->map[x + 1][y] == '0')
-			{
-				game->map[x][y] = '0';
-				game->map[x + 1][y] = 'v';
-			}
-			else if (game->map[x][y + 1] == '1' && game->map[x - 1][y] == '0')
-			{
-				game->map[x][y] = '0';
-				game->map[x - 1][y] = 'v';
-			}
-		}
-		else if ( i < 0)
-		{
-			if (game->map[x][y - 1] != '1' && game->map[x][y - 1] != 'C'
-				&& game->map[x][y - 1] != 'v' && game->map[x][y - 1] != 'V')
-			{
-				game->map[x][y] = '0';
-				game->map[x][y - 1] = 'v';
-			}
-			else if (game->map[x][y - 1] != '1' && game->map[x][y - 1] == 'C'
-				 && (game->map[x][y - 2] == '0' || game->map[x][y - 2] == 'P'))
-			{
-				game->map[x][y] = '0';
-				game->map[x][y - 2] = 'v';
-			}
-			else if (game->map[x][y - 1] == '1' && game->map[x + 1][y] == '0')
-			{
-				game->map[x][y] = '0';
-				game->map[x + 1][y] = 'v';
-			}
-			else if (game->map[x][y - 1] == '1' && game->map[x - 1][y] == '0')
-			{
-				game->map[x][y] = '0';
-				game->map[x - 1][y] = 'v';
-			}
-		}
+	if (game->map[game->patrol_line - 1][game->patrol_col] != '1' 
+		&& game->map[game->patrol_line - 1][game->patrol_col] != 'C' 
+		&& game->map[game->patrol_line - 1][game->patrol_col] != 'v'
+		&& game->map[game->patrol_line - 1][game->patrol_col] != 'V')
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line - 1][game->patrol_col] = 'v';
+		return (0);
+	}
+	else if (game->map[game->patrol_line - 1][game->patrol_col] != '1'
+	 	&& game->map[game->patrol_line - 1][game->patrol_col] == 'C'
+		&& (game->map[game->patrol_line - 2][game->patrol_col] == '0'
+	 	|| game->map[game->patrol_line - 2][game->patrol_col] == 'P'))
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line - 2][game->patrol_col] = 'v';
+		return (0);
+	}
+	return (1);
 }
+
+static int	x_neg_wall(t_data *game)
+{
+	if (game->map[game->patrol_line - 1][game->patrol_col] == '1'
+		&& (game->map[game->patrol_line][game->patrol_col + 1] == '0'
+		|| game->map[game->patrol_line][game->patrol_col + 1] == 'P'))
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line][game->patrol_col + 1] = 'v';
+		return (0);
+	}
+	else if (game->map[game->patrol_line - 1][game->patrol_col] == '1'
+		&& (game->map[game->patrol_line][game->patrol_col - 1] == '0'
+		|| game->map[game->patrol_line][game->patrol_col - 1] == 'P'))
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line][game->patrol_col - 1] = 'v';
+		return (0);
+	}
+	return (1);
+}
+
+static int	x_pos_free(t_data *game)
+{
+	if (game->map[game->patrol_line + 1][game->patrol_col] != '1' 
+		&& game->map[game->patrol_line + 1][game->patrol_col] != 'C' 
+		&& game->map[game->patrol_line + 1][game->patrol_col] != 'v'
+		&& game->map[game->patrol_line + 1][game->patrol_col] != 'V')
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line + 1][game->patrol_col] = 'v';
+		return (0)
+;	}
+	else if (game->map[game->patrol_line + 1][game->patrol_col] != '1'
+	 	&& game->map[game->patrol_line + 1][game->patrol_col] == 'C'
+		&& (game->map[game->patrol_line + 2][game->patrol_col] == '0'
+	 	|| game->map[game->patrol_line + 2][game->patrol_col] == 'P'))
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line + 2][game->patrol_col] = 'v';
+		return (0);
+	}
+	return (1);
+}
+
+static int	x_pos_wall(t_data *game)
+{
+	if (game->map[game->patrol_line + 1][game->patrol_col] == '1'
+		&& (game->map[game->patrol_line][game->patrol_col + 1] == '0'
+		|| game->map[game->patrol_line][game->patrol_col + 1] == 'P'))
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line][game->patrol_col + 1] = 'v';
+		return (0);
+	}
+	else if (game->map[game->patrol_line + 1][game->patrol_col] == '1'
+		&& (game->map[game->patrol_line][game->patrol_col - 1] == '0'
+		|| game->map[game->patrol_line][game->patrol_col - 1] == 'P'))
+	{
+		game->map[game->patrol_line][game->patrol_col] = '0';
+		game->map[game->patrol_line][game->patrol_col - 1] = 'v';
+		return (0);
+	}
+	return (1);
+}
+
+void	patrol_mov_y(t_data *game)
+{
+	int	x;
+
+	printf("patrol_mov_x\n");
+
+	printf("player_col: %d ", game->player_col);
+	printf("patrol_col: %d\n", game->patrol_col);
+
+	x = game->player_line - game->patrol_line;
+
+	printf("x: %d\n",x);
+
+	if (x < 0)
+	{
+		if(x_neg_free(game))
+			x_neg_wall(game);	
+	}
+	if (x > 0)
+	{
+		if (x_pos_free(game))
+			x_pos_wall(game);
+	}
+}	

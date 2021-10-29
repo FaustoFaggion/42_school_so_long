@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:59 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/28 19:55:56 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 10:01:46 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,4 @@ void	game_setup_bonus(t_data *game)
 		x++;
 	}
 	game->moviments = 0;
-	//game->patrol_mov = 0;
 }

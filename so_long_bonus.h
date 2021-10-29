@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/28 19:55:36 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 15:31:43 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define FREE_SPACE		"./images/free_space.xpm"
-# define COLLECTABLE	"./images/collectable.xpm"
-# define WALL			"./images/wall.xpm"
-# define EXIT			"./images/exit.xpm"
-# define PLAYER			"./images/player.xpm"
-# define PATROL			"./images/patrol.xpm"
+# define FREE_SPACE		"./images/free_space2.xpm"
+# define COLLECTABLE	"./images/collectable_blue.xpm"
+# define WALL			"./images/wall2.xpm"
+# define EXIT			"./images/exit2.xpm"
+# define PLAYER			"./images/player3.xpm"
+# define PATROL			"./images/patrol2.xpm"
 # define SCORE_S		"./images/score_s.xpm"
 # define SCORE_C		"./images/score_c.xpm"
 # define SCORE_O		"./images/score_o.xpm"
@@ -72,21 +72,26 @@ typedef struct	s_data
 	void	*img_patrol;
 	int		img_width;
 	int		img_height;
-	int		player_line;
-	int		player_col;
-	int		moviments;
-	void	*score_img;
-	void	*score;
+	void	*score_s;
+	void	*score_c;
+	void	*score_o;
+	void	*score_r;
+	void	*score_e;
+	void	*score_0;
 	void	*score_1;
 	void	*score_2;
 	void	*score_3;
 	void	*score_4;
-	char	*score_addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		patrol_mov;
-
+	void	*score_5;
+	void	*score_6;
+	void	*score_7;
+	void	*score_8;
+	void	*score_9;
+	int		player_line;
+	int		player_col;
+	int		moviments;
+	int		patrol_line;
+	int		patrol_col;
 }			t_data;
 
 
@@ -106,9 +111,10 @@ int		game_exit_bonus(t_data *game);
 
 int		patrol_mov(t_data *game);
 
-void 	patrol_mov_x(t_data *game, int i, int j);
+void 	patrol_mov_x(t_data *game);
 
-void 	patrol_mov_y(t_data *game, int i, int j);
+void 	patrol_mov_y(t_data *game);
 
 void	score_bonus(t_data *game);
+
 #endif

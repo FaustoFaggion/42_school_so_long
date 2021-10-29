@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:04 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 15:55:41 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 10:01:58 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,19 @@ void	img_setup_bonus(t_data *game)
 	game->img_exit = mlx_xpm_file_to_image(game->mlx_ptr, EXIT, &game->img_width, &game->img_height);
 	game->img_player = mlx_xpm_file_to_image(game->mlx_ptr, PLAYER, &game->img_width, &game->img_height);
 	game->img_patrol = mlx_xpm_file_to_image(game->mlx_ptr, PATROL, &game->img_width, &game->img_height);
+	game->score_s = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_S, &game->img_width, &game->img_height);
+	game->score_c = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_C, &game->img_width, &game->img_height);
+	game->score_o = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_O, &game->img_width, &game->img_height);
+	game->score_r = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_R, &game->img_width, &game->img_height);
+	game->score_e = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_E, &game->img_width, &game->img_height);
+	game->score_0 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_0, &game->img_width, &game->img_height);
+	game->score_1 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_1, &game->img_width, &game->img_height);
+	game->score_2 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_2, &game->img_width, &game->img_height);
+	game->score_3 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_3, &game->img_width, &game->img_height);
+	game->score_4 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_4, &game->img_width, &game->img_height);
+	game->score_5 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_5, &game->img_width, &game->img_height);
+	game->score_6 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_6, &game->img_width, &game->img_height);
+	game->score_7 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_7, &game->img_width, &game->img_height);
+	game->score_8 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_8, &game->img_width, &game->img_height);
+	game->score_9 = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_9, &game->img_width, &game->img_height);
 }

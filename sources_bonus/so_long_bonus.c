@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/28 20:20:40 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 15:25:26 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 			mlx_hook(game.mlx_win, 2, 1L<<0, key_events_bonus, &game);
 			mlx_hook(game.mlx_win, 17, 1L<<0, game_exit_bonus, &game);
 			mlx_loop_hook(game.mlx_ptr, patrol_mov, &game);
+			//mlx_loop_hook(game.mlx_ptr, img_anime, &game);
 			mlx_loop(game.mlx_ptr);
 		}
 	}

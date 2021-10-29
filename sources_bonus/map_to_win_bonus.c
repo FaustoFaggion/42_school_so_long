@@ -6,13 +6,13 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:24 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/28 19:39:48 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 10:04:42 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	draw_score(t_data *game)
+/*static void	draw_score(t_data *game)
 {	
 	game->score_img = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_S, &game->img_width, &game->img_height);	
 	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, 0 * game->img_width, 0 * game->img_height);
@@ -33,7 +33,7 @@ static void	draw_score(t_data *game)
 	game->score_img = mlx_xpm_file_to_image(game->mlx_ptr, SCORE_0, &game->img_width, &game->img_height);	
 	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->score_img, 9 * game->img_width, 0 * game->img_height);
 }
-
+*/
 static void	draw_map(t_data *game, int x)
 {
 	int	y;
@@ -60,11 +60,8 @@ static void	draw_map(t_data *game, int x)
 void	map_to_win_bonus(t_data *game)
 {
 	int	x;
-	
-	if (game->moviments == 0)
-		draw_score(game);	
-	if (game->moviments != 0)
-		score_bonus(game);
+
+	score_bonus(game);
 	x = 1;
 	while (x < game->map_line)
 	{

@@ -25,19 +25,6 @@ static void	game_over(t_data *game)
 	}
 }
 
-static void	patrol_decision(t_data *game, int x, int y)
-{
-	int	i;
-	int j;
-
-	i = game->player_line - x;
-	j = game->player_col - y;
-	if (i == 0 || j < i)
-		patrol_mov_x(game, x, y);
-	else if (j == 0 || i < j )
-		patrol_mov_y(game, x, y);
-}
-
 static void	map_upper(t_data *game)
 {
 	int	x;
@@ -59,16 +46,31 @@ static void	map_upper(t_data *game)
 	}
 }
 
-int	patrol_mov(t_data *game)
+static void	patrol_decision(t_data *game)
 {
-	int			x;
-	int			y;
-	static int	speed;
+	int				x;
+	int 			y;
 
-	game_over(game);
-	speed++;
+	x = game->player_line - game->patrol_line;
+	y = game->player_col - game->patrol_col;
+	if (x < 0)
+		x = x * -1;
+	if (y < 0)
+		y = y * -1;
+
+	if (x < y)
+		patrol_mov_x(game);
+	else if (x > y)
+		patrol_mov_y(game);
+}
+
+static int	patrol_position(t_data *game, int speed)
+{
+	int	x;
+	int	y;
+
 	x = 0;
-	if (speed == 10000)
+	if (speed == 100)
 	{
 		while (x < game->map_line)
 		{
@@ -76,14 +78,28 @@ int	patrol_mov(t_data *game)
 			while (y < game->map_col)
 			{
 				if (game->map[x][y] == 'V')
-					patrol_decision(game, x, y);
+				{
+					game->patrol_line = x;
+					game->patrol_col = y;
+					patrol_decision(game);
+				}
 				y++;
 			}
 			x++;
 		}
 		speed = 0;
-		map_upper(game);
-		map_to_win_bonus(game);
 	}
+	return (speed);
+}
+
+int	patrol_mov(t_data *game)
+{
+	static int	speed;
+
+	game_over(game);
+	speed++;
+	speed = patrol_position(game, speed);
+	map_upper(game);
+	map_to_win_bonus(game);
 	return (0);
 }
