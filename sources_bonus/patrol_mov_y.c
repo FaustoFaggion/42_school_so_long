@@ -92,15 +92,7 @@ void	patrol_mov_y(t_data *game)
 {
 	int	x;
 
-	printf("patrol_mov_x\n");
-
-	printf("player_col: %d ", game->player_col);
-	printf("patrol_col: %d\n", game->patrol_col);
-
 	x = game->player_line - game->patrol_line;
-
-	printf("x: %d\n",x);
-
 	if (x < 0)
 	{
 		if(x_neg_free(game))

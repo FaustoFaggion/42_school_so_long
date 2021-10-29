@@ -37,11 +37,12 @@ SRC_FILES_BONUS	=	so_long_bonus.c \
 					game_setup_bonus.c \
 					key_events_bonus.c \
 					game_exit_bonus.c \
-					patrol_mov.c \
+					animation.c \
 					patrol_mov_x.c \
 					patrol_mov_y.c \
-					score_bonus.c 
-
+					score_bonus.c \
+					img_anime.c \
+					#patrol_mov_xy.c
 SRC_BONUS				= 	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 
 OBJ_DIR			= 	objects

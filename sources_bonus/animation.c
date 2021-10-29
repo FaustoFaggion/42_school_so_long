@@ -62,6 +62,8 @@ static void	patrol_decision(t_data *game)
 		patrol_mov_x(game);
 	else if (x > y)
 		patrol_mov_y(game);
+	//else if (x == y)
+	//	patrol_mov_xy(game);
 }
 
 static int	patrol_position(t_data *game, int speed)
@@ -92,7 +94,7 @@ static int	patrol_position(t_data *game, int speed)
 	return (speed);
 }
 
-int	patrol_mov(t_data *game)
+int	animation(t_data *game)
 {
 	static int	speed;
 

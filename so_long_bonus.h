@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 15:31:43 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/29 17:33:00 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define FREE_SPACE		"./images/free_space2.xpm"
 # define COLLECTABLE	"./images/collectable_blue.xpm"
+# define COLLECTABLE_2	"./images/collectable_red.xpm"
 # define WALL			"./images/wall2.xpm"
 # define EXIT			"./images/exit2.xpm"
 # define PLAYER			"./images/player3.xpm"
@@ -66,6 +67,7 @@ typedef struct	s_data
 	int		map_line;
 	void	*img_free_space;
 	void	*img_collectable;
+	void	*img_collectable_2;
 	void	*img_wall;
 	void	*img_exit;
 	void	*img_player;
@@ -109,12 +111,16 @@ int		key_events_bonus(int key, t_data *game);
 
 int		game_exit_bonus(t_data *game);
 
-int		patrol_mov(t_data *game);
+int		animation(t_data *game);
 
 void 	patrol_mov_x(t_data *game);
 
 void 	patrol_mov_y(t_data *game);
 
+//void	patrol_mov_xy(t_data *game);
+
 void	score_bonus(t_data *game);
+
+void	img_anime(t_data *game, int x, int y);
 
 #endif

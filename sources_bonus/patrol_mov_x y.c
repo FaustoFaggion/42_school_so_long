@@ -1,6 +1,6 @@
 # include "so_long_bonus.h"
 
-static int	y_neg_free(t_data *game)
+static int	xy_neg_free(t_data *game)
 {
 	if (game->map[game->patrol_line][game->patrol_col - 1] != '1' 
 		&& game->map[game->patrol_line][game->patrol_col - 1] != 'C' 
@@ -23,7 +23,7 @@ static int	y_neg_free(t_data *game)
 	return (1);
 }
 
-static int	y_neg_wall(t_data *game)
+static int	xy_neg_wall(t_data *game)
 {
 	if (game->map[game->patrol_line][game->patrol_col - 1] == '1'
 		&& (game->map[game->patrol_line + 1][game->patrol_col] == '0'
@@ -44,7 +44,7 @@ static int	y_neg_wall(t_data *game)
 	return (1);
 }
 
-static int	y_pos_free(t_data *game)
+static int	xy_pos_free(t_data *game)
 {
 	if (game->map[game->patrol_line][game->patrol_col + 1] != '1' 
 		&& game->map[game->patrol_line][game->patrol_col + 1] != 'C' 
@@ -67,7 +67,7 @@ static int	y_pos_free(t_data *game)
 	return (1);
 }
 
-static int	y_pos_wall(t_data *game)
+static int	xy_pos_wall(t_data *game)
 {
 	if (game->map[game->patrol_line][game->patrol_col + 1] == '1'
 		&& (game->map[game->patrol_line + 1][game->patrol_col] == '0'
@@ -88,19 +88,21 @@ static int	y_pos_wall(t_data *game)
 	return (1);
 }
 
-void	patrol_mov_x(t_data *game)
+void	patrol_mov_xy(t_data *game)
 {
-	int y;
+	static int	flag;
 	
-	y = game->player_col - game->patrol_col;
-	if (y < 0)
+	printf("EEEEE");
+	if (flag ==0)
 	{
-		if(y_neg_free(game))
-			y_neg_wall(game);	
+		if(xy_neg_free(game))
+			xy_neg_wall(game);	
+		flag = 1
 	}
-	if (y > 0)
+	else if (falg == 1))
 	{
-		if (y_pos_free(game))
-			y_pos_wall(game);
+		if (xy_pos_free(game))
+			xy_pos_wall(game);
+		flag = 0;
 	}
 }	
