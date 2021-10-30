@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:10 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 10:03:17 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 09:48:03 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	key_up(t_data *game)
 {
 	if (game->map[game->player_line - 1][game->player_col] != '1')
 	{
+		if (game->map[game->player_line - 1][game->player_col] == 'V')
+			game_over(game);
 		if (game->map[game->player_line - 1][game->player_col] == 'C')
 			game->map_c_count--;
 		if (game->map[game->player_line - 1][game->player_col] == 'E' && game->map_c_count == 0)
@@ -38,6 +40,8 @@ static void	key_down(t_data *game)
 {
 	if (game->map[game->player_line + 1][game->player_col] != '1')
 	{
+		if (game->map[game->player_line + 1][game->player_col] == 'V')
+			game_over(game);
 		if (game->map[game->player_line + 1][game->player_col] == 'C')
 			game->map_c_count--;
 		if (game->map[game->player_line + 1][game->player_col] == 'E' && game->map_c_count == 0)
@@ -60,6 +64,8 @@ static void	key_left(t_data *game)
 {
 	if (game->map[game->player_line][game->player_col - 1] != '1')
 	{
+		if (game->map[game->player_line][game->player_col - 1] == 'V')
+			game_over(game);
 		if (game->map[game->player_line][game->player_col - 1] == 'C')
 			game->map_c_count--;
 		if (game->map[game->player_line][game->player_col - 1] == 'E' && game->map_c_count == 0)
@@ -82,6 +88,8 @@ static void	key_right(t_data *game)
 {
 	if (game->map[game->player_line][game->player_col + 1] != '1')
 	{
+		if (game->map[game->player_line][game->player_col + 1] == 'V')
+			game_exit_bonus(game);
 		if (game->map[game->player_line][game->player_col + 1] == 'C')
 			game->map_c_count--;
 		if (game->map[game->player_line][game->player_col + 1] != 'E' || game->map_c_count == 0)

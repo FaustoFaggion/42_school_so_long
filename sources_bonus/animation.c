@@ -1,28 +1,9 @@
 #include "so_long_bonus.h"
 
-static void	game_over(t_data *game)
+void	game_over(t_data *game)
 {
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < game->map_line)
-	{
-		y = 0;
-		while (y < game->map_col)
-		{
-			if (game->map[x][y] == 'V')
-			{
-				if (game->player_line == x && game->player_col == y)
-				{
-					printf("GAME OVER!!!");
-					game_exit_bonus(game);
-				}
-			}
-			y++;
-		}
-		x++;
-	}
+	printf("GAME OVER!!!");
+	game_exit_bonus(game);
 }
 
 static void	map_upper(t_data *game)
@@ -98,7 +79,7 @@ int	animation(t_data *game)
 {
 	static int	speed;
 
-	game_over(game);
+	//game_over(game);
 	speed++;
 	speed = patrol_position(game, speed);
 	map_upper(game);

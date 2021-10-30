@@ -7,15 +7,19 @@ static int	x_neg_free(t_data *game)
 		&& game->map[game->patrol_line - 1][game->patrol_col] != 'v'
 		&& game->map[game->patrol_line - 1][game->patrol_col] != 'V')
 	{
+		if (game->map[game->patrol_line - 1][game->patrol_col] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line - 1][game->patrol_col] = 'v';
 		return (0);
 	}
-	else if (game->map[game->patrol_line - 1][game->patrol_col] != '1'
+	else if (game->map[game->patrol_line - 2][game->patrol_col] != '1'
 	 	&& game->map[game->patrol_line - 1][game->patrol_col] == 'C'
 		&& (game->map[game->patrol_line - 2][game->patrol_col] == '0'
 	 	|| game->map[game->patrol_line - 2][game->patrol_col] == 'P'))
 	{
+		if (game->map[game->patrol_line - 2][game->patrol_col] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line - 2][game->patrol_col] = 'v';
 		return (0);
@@ -29,6 +33,8 @@ static int	x_neg_wall(t_data *game)
 		&& (game->map[game->patrol_line][game->patrol_col + 1] == '0'
 		|| game->map[game->patrol_line][game->patrol_col + 1] == 'P'))
 	{
+		if (game->map[game->patrol_line][game->patrol_col + 1] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line][game->patrol_col + 1] = 'v';
 		return (0);
@@ -37,6 +43,8 @@ static int	x_neg_wall(t_data *game)
 		&& (game->map[game->patrol_line][game->patrol_col - 1] == '0'
 		|| game->map[game->patrol_line][game->patrol_col - 1] == 'P'))
 	{
+		if (game->map[game->patrol_line][game->patrol_col - 1] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line][game->patrol_col - 1] = 'v';
 		return (0);
@@ -51,15 +59,19 @@ static int	x_pos_free(t_data *game)
 		&& game->map[game->patrol_line + 1][game->patrol_col] != 'v'
 		&& game->map[game->patrol_line + 1][game->patrol_col] != 'V')
 	{
+		if (game->map[game->patrol_line + 1][game->patrol_col] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line + 1][game->patrol_col] = 'v';
 		return (0)
 ;	}
-	else if (game->map[game->patrol_line + 1][game->patrol_col] != '1'
+	else if (game->map[game->patrol_line + 2][game->patrol_col] != '1'
 	 	&& game->map[game->patrol_line + 1][game->patrol_col] == 'C'
 		&& (game->map[game->patrol_line + 2][game->patrol_col] == '0'
 	 	|| game->map[game->patrol_line + 2][game->patrol_col] == 'P'))
 	{
+		if (game->map[game->patrol_line + 2][game->patrol_col] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line + 2][game->patrol_col] = 'v';
 		return (0);
@@ -73,6 +85,8 @@ static int	x_pos_wall(t_data *game)
 		&& (game->map[game->patrol_line][game->patrol_col + 1] == '0'
 		|| game->map[game->patrol_line][game->patrol_col + 1] == 'P'))
 	{
+		if (game->map[game->patrol_line][game->patrol_col + 1] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line][game->patrol_col + 1] = 'v';
 		return (0);
@@ -81,6 +95,8 @@ static int	x_pos_wall(t_data *game)
 		&& (game->map[game->patrol_line][game->patrol_col - 1] == '0'
 		|| game->map[game->patrol_line][game->patrol_col - 1] == 'P'))
 	{
+		if (game->map[game->patrol_line][game->patrol_col - 1] == 'P') 
+			game_over(game);
 		game->map[game->patrol_line][game->patrol_col] = '0';
 		game->map[game->patrol_line][game->patrol_col - 1] = 'v';
 		return (0);
