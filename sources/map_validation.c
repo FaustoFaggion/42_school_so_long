@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/25 16:21:29 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 11:44:49 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	position_validation(t_data *game)
 		}
 		x++;
 	}
-	if (game->map_e_count != 1 || game->map_p_count != 1 || game->map_c_count == 0)
+	if (game->map_e_count != 1 || game->map_p_count != 1
+		|| game->map_c_count == 0)
 		return (0);
 	return (1);
 }
@@ -49,8 +50,10 @@ static int	wall_validation(t_data *game)
 		y = 0;
 		while (y < game->map_height)
 		{
-			if (game->map[0][x] != '1' || game->map[game->map_height - 1][x] != '1'
-				|| game->map[y][0] != '1' || game->map[y][game->map_width - 1] != '1')
+			if (game->map[0][x] != '1'
+				|| game->map[game->map_height - 1][x] != '1'
+				|| game->map[y][0] != '1' ||
+				game->map[y][game->map_width - 1] != '1')
 				return (0);
 			y++;
 		}
@@ -72,8 +75,9 @@ static int	characters_validation(t_data *game)
 		y = 0;
 		while (y < game->map_height)
 		{
-			if (game->map[y][x] != '0' && game->map[y][x] != '1' && game->map[y][x] != 'C'
-				&& game->map[y][x] != 'E' && game->map[y][x] != 'P')
+			if (game->map[y][x] != '0' && game->map[y][x] != '1'
+				&& game->map[y][x] != 'C' && game->map[y][x] != 'E'
+				&& game->map[y][x] != 'P')
 				return (0);
 			y++;
 		}
@@ -104,12 +108,10 @@ int	map_validation(t_data *game, char *file_path)
 	game->map_height = 0;
 	game->map_width = (int)ft_strlen(game->map[0]);
 	while (game->map[game->map_height])
-	{
 		game->map_height++;
-	}
 	if (game->map)
 	{
-		if (position_validation(game) && wall_validation(game) 
+		if (position_validation(game) && wall_validation(game)
 			&& characters_validation(game) && extension_validation(file_path))
 			return (1);
 	}

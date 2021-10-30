@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/25 16:21:16 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 11:50:06 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**map_built(t_data *game, char *file_path)
 	{
 		line = ft_get_next_line(game->map_fd);
 		if (!line)
-			break;
+			break ;
 		swap = temp;
 		temp = ft_strjoin(swap, line);
 		free(swap);

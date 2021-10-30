@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:41 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/26 14:11:23 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 11:36:13 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 # define FREE_SPACE		"./images/free_space.xpm"
-# define COLLECTABLE	"./images/collectable.xpm"
+# define COLLECTABLE	"./images/collectable_blue.xpm"
 # define WALL			"./images/wall.xpm" 
 # define EXIT			"./images/exit.xpm" 
 # define PLAYER			"./images/player.xpm" 
@@ -34,7 +34,7 @@
 # define KEY_LEFT		65361
 # define KEY_RIGHT		65363
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
@@ -60,7 +60,6 @@ typedef struct	s_data
 	int		moviments;
 
 }			t_data;
-
 
 char	**map_built(t_data *game, char *flie_path);
 

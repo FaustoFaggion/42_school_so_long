@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/28 20:44:06 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 10:24:13 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static char	*add_line(char **temp)
 {
-	int 	i;
+	int		i;
 	char	*new;
 	char	*swap;
-	
+
 	i = 0;
 	while ((*temp)[i] != '\n')
 		i++;
 	new = ft_calloc((i + 2), sizeof(char));
 	new[i] = '\n';
-	while ( i > 0)
+	while (i > 0)
 	{
 		new[i - 1] = 'S';
 		i--;
@@ -50,7 +50,7 @@ char	**map_built_bonus(t_data *game, char *file_path)
 	{
 		line = ft_get_next_line(game->map_fd);
 		if (!line)
-			break;
+			break ;
 		swap = temp;
 		temp = ft_strjoin(swap, line);
 		free(line);

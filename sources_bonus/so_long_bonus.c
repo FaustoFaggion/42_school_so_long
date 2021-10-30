@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 16:23:05 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 11:03:06 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int	main(int argc, char **argv)
 		{
 			game.mlx_ptr = mlx_init();
 			img_setup_bonus(&game);
-			game.mlx_win = mlx_new_window(game.mlx_ptr, game.img_width * game.map_col, game.img_height * game.map_line, "SO_LONG");
+			game.mlx_win = mlx_new_window(game.mlx_ptr,
+					game.img_width * game.map_col,
+					game.img_height * game.map_line, "SO_LONG");
 			game_setup_bonus(&game);
 			map_to_win_bonus(&game);
-			mlx_hook(game.mlx_win, 2, 1L<<0, key_events_bonus, &game);
-			mlx_hook(game.mlx_win, 17, 1L<<0, game_exit_bonus, &game);
+			mlx_hook(game.mlx_win, 2, 1L << 0, key_events_bonus, &game);
+			mlx_hook(game.mlx_win, 17, 1L << 0, game_exit_bonus, &game);
 			mlx_loop_hook(game.mlx_ptr, animation, &game);
 			mlx_loop(game.mlx_ptr);
 		}
 	}
 	else
-	{
 		printf("Path to map not found!\n");
-	}
 	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 16:20:59 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 10:01:46 by fausto           ###   ########.fr       */
+/*   Created: 2021/10/30 10:35:14 by fausto            #+#    #+#             */
+/*   Updated: 2021/10/30 10:35:17 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	game_setup_bonus(t_data *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x < game->map_line)
@@ -23,11 +23,11 @@ void	game_setup_bonus(t_data *game)
 		y = 0;
 		while (y < game->map_col)
 		{
-			if(game->map[x][y] == 'P')
+			if (game->map[x][y] == 'P')
 			{
 				game->player_line = x;
 				game->player_col = y;
-				break;
+				break ;
 			}
 			y++;
 		}

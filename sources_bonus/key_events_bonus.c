@@ -6,7 +6,7 @@
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:10 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/30 09:48:03 by fausto           ###   ########.fr       */
+/*   Updated: 2021/10/30 10:23:25 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ static void	key_up(t_data *game)
 			game_over(game);
 		if (game->map[game->player_line - 1][game->player_col] == 'C')
 			game->map_c_count--;
-		if (game->map[game->player_line - 1][game->player_col] == 'E' && game->map_c_count == 0)
+		if (game->map[game->player_line - 1][game->player_col] == 'E'
+			&& game->map_c_count == 0)
 		{
 			printf("Game Finished!!");
 			game_exit_bonus(game);
 		}
-		if (game->map[game->player_line - 1][game->player_col] != 'E' || game->map_c_count == 0)
+		if (game->map[game->player_line - 1][game->player_col] != 'E'
+			|| game->map_c_count == 0)
 		{
 			game->map[game->player_line][game->player_col] = '0';
 			game->map[game->player_line - 1][game->player_col] = 'P';
@@ -44,12 +46,14 @@ static void	key_down(t_data *game)
 			game_over(game);
 		if (game->map[game->player_line + 1][game->player_col] == 'C')
 			game->map_c_count--;
-		if (game->map[game->player_line + 1][game->player_col] == 'E' && game->map_c_count == 0)
+		if (game->map[game->player_line + 1][game->player_col] == 'E'
+			&& game->map_c_count == 0)
 		{
 			printf("Game Finished!!");
 			game_exit_bonus(game);
 		}
-		if (game->map[game->player_line + 1][game->player_col] != 'E' || game->map_c_count == 0)
+		if (game->map[game->player_line + 1][game->player_col] != 'E'
+			|| game->map_c_count == 0)
 		{
 			game->map[game->player_line][game->player_col] = '0';
 			game->map[game->player_line + 1][game->player_col] = 'P';
@@ -68,12 +72,14 @@ static void	key_left(t_data *game)
 			game_over(game);
 		if (game->map[game->player_line][game->player_col - 1] == 'C')
 			game->map_c_count--;
-		if (game->map[game->player_line][game->player_col - 1] == 'E' && game->map_c_count == 0)
+		if (game->map[game->player_line][game->player_col - 1] == 'E'
+			&& game->map_c_count == 0)
 		{
 			printf("Game Finished!!");
 			game_exit_bonus(game);
 		}
-		if (game->map[game->player_line][game->player_col - 1] != 'E' || game->map_c_count == 0)
+		if (game->map[game->player_line][game->player_col - 1] != 'E'
+			|| game->map_c_count == 0)
 		{
 			game->map[game->player_line][game->player_col] = '0';
 			game->map[game->player_line][game->player_col - 1] = 'P';
@@ -92,7 +98,8 @@ static void	key_right(t_data *game)
 			game_exit_bonus(game);
 		if (game->map[game->player_line][game->player_col + 1] == 'C')
 			game->map_c_count--;
-		if (game->map[game->player_line][game->player_col + 1] != 'E' || game->map_c_count == 0)
+		if (game->map[game->player_line][game->player_col + 1] != 'E'
+			|| game->map_c_count == 0)
 		{
 			game->map[game->player_line][game->player_col] = '0';
 			game->map[game->player_line][game->player_col + 1] = 'P';
@@ -114,6 +121,6 @@ int	key_events_bonus(int key, t_data *game)
 	else if (key == KEY_LEFT || key == KEY_A)
 		key_left(game);
 	else if (key == KEY_RIGHT || key == KEY_D)
-		key_right(game); 
+		key_right(game);
 	return (0);
 }

@@ -109,4 +109,7 @@ sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 	$(CC) $(FS) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 
 valgrind: $(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./so_long ./maps/basic3.ber
+
+valgrind_bonus: $(NAME_BONUS)
 	valgrind --leak-check=full --show-leak-kinds=all ./so_long_bonus ./maps_bonus/basic_bonus3.ber

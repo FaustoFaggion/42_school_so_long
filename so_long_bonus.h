@@ -5,26 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 16:21:50 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/29 18:39:41 by fausto           ###   ########.fr       */
+/*   Created: 2021/10/30 11:08:44 by fausto            #+#    #+#             */
+/*   Updated: 2021/10/30 11:37:12 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "mlx.h"
 # include "libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 
-# define FREE_SPACE		"./images/free_space2.xpm"
+# define FREE_SPACE		"./images/free_space.xpm"
 # define COLLECTABLE	"./images/collectable_blue.xpm"
 # define COLLECTABLE_2	"./images/collectable_red.xpm"
-# define WALL			"./images/wall2.xpm"
-# define EXIT			"./images/exit2.xpm"
-# define PLAYER			"./images/player3.xpm"
-# define PATROL			"./images/patrol2.xpm"
+# define WALL			"./images/wall.xpm"
+# define EXIT			"./images/exit.xpm"
+# define PLAYER			"./images/player.xpm"
+# define PATROL			"./images/patrol.xpm"
 # define SCORE_S		"./images/score_s.xpm"
 # define SCORE_C		"./images/score_c.xpm"
 # define SCORE_O		"./images/score_o.xpm"
@@ -51,7 +51,7 @@
 # define KEY_LEFT		65361
 # define KEY_RIGHT		65363
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
@@ -96,7 +96,6 @@ typedef struct	s_data
 	int		patrol_col;
 }			t_data;
 
-
 char	**map_built_bonus(t_data *game, char *flie_path);
 
 int		map_validation_bonus(t_data *game, char *file_path);
@@ -113,9 +112,9 @@ int		game_exit_bonus(t_data *game);
 
 int		animation(t_data *game);
 
-void 	patrol_mov_x(t_data *game);
+void	patrol_mov_x(t_data *game);
 
-void 	patrol_mov_y(t_data *game);
+void	patrol_mov_y(t_data *game);
 
 void	patrol_mov_xy(t_data *game);
 

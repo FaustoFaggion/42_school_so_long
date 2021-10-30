@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   animation.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/30 10:07:30 by fausto            #+#    #+#             */
+/*   Updated: 2021/10/30 12:01:03 by fausto           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 void	game_over(t_data *game)
@@ -29,8 +41,8 @@ static void	map_upper(t_data *game)
 
 static void	patrol_decision(t_data *game)
 {
-	int				x;
-	int 			y;
+	int	x;
+	int	y;
 
 	x = game->player_line - game->patrol_line;
 	y = game->player_col - game->patrol_col;
@@ -38,7 +50,6 @@ static void	patrol_decision(t_data *game)
 		x = x * -1;
 	if (y < 0)
 		y = y * -1;
-
 	if (x < y)
 		patrol_mov_x(game);
 	else if (x > y)
@@ -53,7 +64,7 @@ static int	patrol_position(t_data *game, int speed)
 	int	y;
 
 	x = 0;
-	if (speed == 400)
+	if (speed == 200)
 	{
 		while (x < game->map_line)
 		{
@@ -79,7 +90,6 @@ int	animation(t_data *game)
 {
 	static int	speed;
 
-	//game_over(game);
 	speed++;
 	speed = patrol_position(game, speed);
 	map_upper(game);

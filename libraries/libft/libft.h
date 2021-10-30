@@ -73,7 +73,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 **/
 
 /**
- * @brief 	Open a txt file and return line by line from then when called in a loop.
+ * @brief 	Open a txt file and return line by line from then 
+ * 			when called in a loop.
  * @param 1 File Descriptor of the file
  * @return  Line by line from a file when the function is called in a loop
 **/
