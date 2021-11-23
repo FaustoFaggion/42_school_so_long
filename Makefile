@@ -114,7 +114,8 @@ sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 
 valgrind: $(NAME)
 	make re
-	valgrind --leak-check=full --show-leak-kinds=all ./so_long ./maps/basic3.ber
+	valgrind --leak-check=full --show-leak-kinds=all ./so_long ./maps/basic2.ber
+	
 
 valgrind_bonus: $(NAME_BONUS)
 	make re_bonus

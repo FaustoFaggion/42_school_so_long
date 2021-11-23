@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 17:26:57 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/23 17:46:30 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		game.map = map_built_bonus(&game, argv[1]);
+		if (game.map == NULL)
+			return (1);
 		x = map_validation_bonus(&game);
 		if (x == 0)
 		{
