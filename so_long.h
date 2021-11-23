@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:41 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/30 11:36:13 by fausto           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:32:26 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_data
 
 char	**map_built(t_data *game, char *flie_path);
 
-int		map_validation(t_data *game, char *file_path);
+int		map_validation(t_data *game);
 
 void	map_to_win(t_data *game);
 
@@ -76,5 +76,9 @@ void	game_setup(t_data *game);
 int		win_events(t_data *game);
 
 int		game_exit(t_data *game);
+
+int	extension_validation(char *file);
+
+ void	ft_clear_split(char **ptr);
 
 #endif

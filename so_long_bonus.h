@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 11:08:44 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/30 11:37:12 by fausto           ###   ########.fr       */
+/*   Updated: 2021/11/23 16:15:16 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ typedef struct s_data
 	int		patrol_col;
 }			t_data;
 
-char	**map_built_bonus(t_data *game, char *flie_path);
+char	**map_built_bonus(t_data *game, char *file_path);
 
-int		map_validation_bonus(t_data *game, char *file_path);
+int		map_validation_bonus(t_data *game);
 
 void	map_to_win_bonus(t_data *game);
 
@@ -123,5 +123,9 @@ void	score_bonus(t_data *game);
 void	img_anime(t_data *game, int x, int y);
 
 void	game_over(t_data *game);
+
+int		extension_validation(char *file);
+
+void	ft_clear_split(char **ptr);
 
 #endif

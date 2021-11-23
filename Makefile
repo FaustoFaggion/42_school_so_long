@@ -99,17 +99,23 @@ fclean: clean
 
 re: fclean all
 
-#run:
-#	gcc $(FLAGS) main_solong.c $(NAME) && ./a.out
+re_bonus: fclean bonus
 
-#run_bonus:
-#	gcc $(FLAGS) main_printf_bonus.c $(NAME) && ./a.out
+run:
+	make fclean
+	make && ./so_long ./maps/basic3.ber
+
+run_bonus:
+	make fclean
+	make bonus && ./so_long_bonus ./maps_bonus/basic_bonus3.ber
 
 sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 	$(CC) $(FS) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 
 valgrind: $(NAME)
+	make re
 	valgrind --leak-check=full --show-leak-kinds=all ./so_long ./maps/basic3.ber
 
 valgrind_bonus: $(NAME_BONUS)
-	valgrind --leak-check=full --show-leak-kinds=all ./so_long_bonus ./maps_bonus/basic_bonus3.ber
+	make re_bonus
+	valgrind --leak-check=full --show-leak-kinds=all ./so_long_bonus ./maps_bonus/basic_bonus2.ber

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_exit_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:40 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/30 10:11:30 by fausto           ###   ########.fr       */
+/*   Updated: 2021/11/23 16:08:25 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	destroy_img(t_data *game)
 	mlx_destroy_image(game->mlx_ptr, game->score_9);
 }
 
-static void	ft_clear_split(char **ptr)
+void	ft_clear_split(char **ptr)
 {
 	int	i;
 

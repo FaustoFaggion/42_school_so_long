@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   game_exit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:40 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/25 16:20:41 by fausto           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:03:34 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	ft_clear_split(char **ptr)
+ void	ft_clear_split(char **ptr)
 {
 	int	i;
 

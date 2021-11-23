@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/30 11:44:49 by fausto           ###   ########.fr       */
+/*   Updated: 2021/11/23 17:11:37 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	position_validation(t_data *game)
 	}
 	if (game->map_e_count != 1 || game->map_p_count != 1
 		|| game->map_c_count == 0)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 static int	wall_validation(t_data *game)
@@ -54,21 +54,21 @@ static int	wall_validation(t_data *game)
 				|| game->map[game->map_height - 1][x] != '1'
 				|| game->map[y][0] != '1' ||
 				game->map[y][game->map_width - 1] != '1')
-				return (0);
+				return (1);
 			y++;
 		}
 		if (y != game->map_height)
-			return (0);
+			return (1);
 		x++;
 	}
-	return (1);
+	return (0);
 }
 
 static int	characters_validation(t_data *game)
 {
 	int	x;
 	int	y;
-
+	
 	x = 0;
 	while (x < game->map_width)
 	{
@@ -78,29 +78,40 @@ static int	characters_validation(t_data *game)
 			if (game->map[y][x] != '0' && game->map[y][x] != '1'
 				&& game->map[y][x] != 'C' && game->map[y][x] != 'E'
 				&& game->map[y][x] != 'P')
-				return (0);
+				return (1);
 			y++;
 		}
 		x++;
 	}
-	return (1);
+	return (0);
 }
 
-static int	extension_validation(char *file)
+int	extension_validation(char *file)
 {
 	char	*ext;
 
 	if (!file)
-		return (0);
+		return (1);
 	ext = ft_strrchr(file, '.');
-	if (ft_strncmp(ext, ".ber", 5))
+	if (ext == NULL)
+		return (1);
+	printf("%s\n", ext);
+	if (ft_strncmp(ext, ".ber", 5) == 0)
+	{
+		printf(".ber ok\n");
 		return (0);
+	}
+	printf("extension not ok\n");
 	return (1);
 }
 
 // *file path = argv[1]
-int	map_validation(t_data *game, char *file_path)
+int	map_validation(t_data *game)
 {
+	int a;
+	int	b;
+	int	c;
+	
 	game->map_e_count = 0;
 	game->map_s_count = 0;
 	game->map_c_count = 0;
@@ -109,11 +120,14 @@ int	map_validation(t_data *game, char *file_path)
 	game->map_width = (int)ft_strlen(game->map[0]);
 	while (game->map[game->map_height])
 		game->map_height++;
-	if (game->map)
-	{
-		if (position_validation(game) && wall_validation(game)
-			&& characters_validation(game) && extension_validation(file_path))
-			return (1);
-	}
-	return (0);
+	
+	a = position_validation(game);
+	b = wall_validation(game);
+	c = characters_validation(game);
+	printf("a %d - b %d - c %d \n", a, b, c);
+	
+	if (a == 0 && b == 0 && c == 0)
+		return (0);
+	printf("MAP VALIDATION PROBLEM");
+	return (1);
 }
