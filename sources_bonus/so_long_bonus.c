@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 17:46:30 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/23 19:05:19 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@ int	main(int argc, char **argv)
 	int		x;
 	
 	if (extension_validation(argv[1]) == 1)
-	{
-		printf("extension error %d\n\n", extension_validation(argv[1]));
 		return (1);
-	}
-	printf("extension %d\n\n", extension_validation(argv[1]));
 	setbuf(stdout, NULL);
 	if (argc == 2)
 	{
 		game.map = map_built_bonus(&game, argv[1]);
-		if (game.map == NULL)
+		if (game.map == NULL || *game.map == NULL)
+		{
+			ft_clear_split(game.map);
 			return (1);
+		}
 		x = map_validation_bonus(&game);
 		if (x == 0)
 		{

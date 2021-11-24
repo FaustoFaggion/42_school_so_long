@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 17:23:00 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/23 19:07:29 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,11 @@ int	extension_validation(char *file)
 	ext = ft_strrchr(file, '.');
 	if (ext == NULL)
 		return (1);
-	printf("%s\n", ext);
 	if (ft_strncmp(ext, ".ber", 5) == 0)
 	{
 		printf(".ber ok bonus\n");
 		return (0);
 	}
-	printf("extension not ok bonus\n");
 	return (1);
 }
 
@@ -122,12 +120,9 @@ int	map_validation_bonus(t_data *game)
 	game->map_col = (int)ft_strlen(game->map[0]);
 	while (game->map[game->map_line])
 		game->map_line++;
-	
 	a = position_validation(game);
 	b = wall_validation(game);
 	c = characters_validation(game);
-	printf("a %d - b %d - c %d \n", a, b, c);
-	
 	if (a == 0 && b == 0 && c == 0)
 		return (0);
 	printf("MAP VALIDATION PROBLEM");
