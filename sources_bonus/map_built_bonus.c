@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 18:57:43 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/24 10:47:51 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*add_line(char **temp)
 	char	*swap;
 
 	i = 0;
-	while ((*temp)[i] != '\n' && *temp[i] != '\0')
+	while ((*temp)[i] != '\n' && (*temp)[i] != '\0')
 		i++;
 	new = ft_calloc((i + 2), sizeof(char));
 	new[i] = '\n';

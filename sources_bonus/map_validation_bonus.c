@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 19:07:29 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/24 10:30:38 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int	extension_validation(char *file)
 		printf(".ber ok bonus\n");
 		return (0);
 	}
+	printf("validation not ok bonus\n");
 	return (1);
 }
 

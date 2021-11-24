@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 17:11:37 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:16:34 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	characters_validation(t_data *game)
 {
 	int	x;
 	int	y;
-	
+
 	x = 0;
 	while (x < game->map_width)
 	{
@@ -95,12 +95,8 @@ int	extension_validation(char *file)
 	ext = ft_strrchr(file, '.');
 	if (ext == NULL)
 		return (1);
-	printf("%s\n", ext);
 	if (ft_strncmp(ext, ".ber", 5) == 0)
-	{
-		printf(".ber ok\n");
 		return (0);
-	}
 	printf("extension not ok\n");
 	return (1);
 }
@@ -108,10 +104,10 @@ int	extension_validation(char *file)
 // *file path = argv[1]
 int	map_validation(t_data *game)
 {
-	int a;
+	int	a;
 	int	b;
 	int	c;
-	
+
 	game->map_e_count = 0;
 	game->map_s_count = 0;
 	game->map_c_count = 0;
@@ -120,12 +116,9 @@ int	map_validation(t_data *game)
 	game->map_width = (int)ft_strlen(game->map[0]);
 	while (game->map[game->map_height])
 		game->map_height++;
-	
 	a = position_validation(game);
 	b = wall_validation(game);
 	c = characters_validation(game);
-	printf("a %d - b %d - c %d \n", a, b, c);
-	
 	if (a == 0 && b == 0 && c == 0)
 		return (0);
 	printf("MAP VALIDATION PROBLEM");

@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:20:40 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 16:08:25 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:07:38 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ void	ft_clear_split(char **ptr)
 {
 	int	i;
 
-	i = -1;
-	while (ptr[++i])
-		free(ptr[i]);
+	if (ptr != NULL)
+	{
+		i = -1;
+		while (ptr[++i])
+			free(ptr[i]);
+	}
 	free(ptr);
 }
 

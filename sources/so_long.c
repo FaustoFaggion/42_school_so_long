@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/24 10:19:07 by fagiusep         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:20:14 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ static void	game_play(t_data *game)
 int	main(int argc, char **argv)
 {
 	t_data	game;
-	int		x;
 
 	if (extension_validation(argv[1]) == 1)
 		return (1);
-	printf("ext valid %d", extension_validation(argv[1]));
 	setbuf(stdout, NULL);
 	if (argc == 2)
 	{
@@ -43,11 +41,8 @@ int	main(int argc, char **argv)
 			ft_clear_split(game.map);
 			return (1);
 		}
-		x = map_validation(&game);
-		if (x == 0)
-		{
+		if (map_validation(&game) == 0)
 			game_play(&game);
-		}
 		else
 		{
 			ft_clear_split(game.map);
