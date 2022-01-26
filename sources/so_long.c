@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/24 11:20:14 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/26 20:44:24 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	game_play(t_data *game)
 	game->mlx_ptr = mlx_init();
 	img_setup(game);
 	game->mlx_win = mlx_new_window(game->mlx_ptr,
-		game->img_width * game->map_width,
-		game->img_height * game->map_height, "SO_LONG");
+			game->img_width * game->map_width,
+			game->img_height * game->map_height, "SO_LONG");
 	map_to_win(game);
 	game_setup(game);
 	mlx_hook(game->mlx_win, 2, 1L << 0, key_events, game);

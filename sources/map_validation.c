@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/24 11:16:34 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/26 20:42:47 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	map_validation(t_data *game)
 	int	a;
 	int	b;
 	int	c;
+	int	i;
 
 	game->map_e_count = 0;
 	game->map_s_count = 0;
@@ -114,12 +115,13 @@ int	map_validation(t_data *game)
 	game->map_p_count = 0;
 	game->map_height = 0;
 	game->map_width = (int)ft_strlen(game->map[0]);
+	i = map_square(game);
 	while (game->map[game->map_height])
 		game->map_height++;
 	a = position_validation(game);
 	b = wall_validation(game);
 	c = characters_validation(game);
-	if (a == 0 && b == 0 && c == 0)
+	if (a == 0 && b == 0 && c == 0 && i == 0)
 		return (0);
 	printf("MAP VALIDATION PROBLEM");
 	return (1);
