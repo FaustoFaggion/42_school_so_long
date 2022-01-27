@@ -21,6 +21,7 @@ SRC_DIR			= 	sources
 SRC_FILES		=	so_long.c \
 					map_built.c \
 					map_validation.c \
+					map_validation_utils.c \
 					map_to_win.c \
 					img_setup.c \
 					key_events.c \
