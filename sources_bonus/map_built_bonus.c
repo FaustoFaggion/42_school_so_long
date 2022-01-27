@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 12:36:30 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:53:08 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static char	*add_line(char **temp)
 	while ((*temp)[i] != '\n' && (*temp)[i] != '\0')
 		i++;
 	new = ft_calloc((i + 2), sizeof(char));
+	if (new == NULL)
+		return (NULL);
 	new[i] = '\n';
 	while (i > 0)
 	{
@@ -56,16 +58,12 @@ static char	*add_line(char **temp)
 	return (*temp);
 }
 
-char	**map_built_bonus(t_data *game, char *file_path)
+static char *parse_map(t_data *game)
 {
-	char	**map;
-	char	*swap;
 	char	*line;
+	char	*swap;
 	char	*temp;
-
-	game->map_fd = open(file_path, O_RDONLY);
-	if (game->map_fd == -1)
-		return (NULL);
+	
 	temp = ft_strdup("");
 	while (1)
 	{
@@ -77,9 +75,33 @@ char	**map_built_bonus(t_data *game, char *file_path)
 		free(line);
 		free(swap);
 	}
+	return (temp);
+}
+
+static int	open_map(t_data *game, char *file_path)
+{
+	game->map_fd = open(file_path, O_RDONLY);
+	if (game->map_fd == -1)
+		return (1);
+	return (0);
+}
+
+char	**map_built_bonus(t_data *game, char *file_path)
+{
+	char	**map;
+	char	*swap;
+	char	*temp;
+
+	if (open_map(game, file_path) == 1)
+		return (NULL);
+	temp = parse_map(game);
+	if (temp == NULL)
+		return (NULL);
 	if (empty_line(temp) == 1)
 		return (NULL);
 	swap = add_line(&temp);
+	if (swap == NULL)
+		return (NULL);
 	map = ft_split(swap, '\n');
 	free(swap);
 	close(game->map_fd);
