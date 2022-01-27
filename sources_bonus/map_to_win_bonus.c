@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_to_win_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:24 by fausto            #+#    #+#             */
-/*   Updated: 2021/10/30 10:53:36 by fausto           ###   ########.fr       */
+/*   Updated: 2022/01/27 12:04:08 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	draw_map(t_data *game, int x)
 	}
 }
 
-void	map_to_win_bonus(t_data *game)
+int	map_to_win_bonus(t_data *game)
 {
 	int	x;
 
@@ -52,4 +52,5 @@ void	map_to_win_bonus(t_data *game)
 		draw_map(game, x);
 		x++;
 	}
+	return (0);
 }

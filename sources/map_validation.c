@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/26 20:42:47 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:00:39 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ int	extension_validation(char *file)
 	return (1);
 }
 
-// *file path = argv[1]
 int	map_validation(t_data *game)
 {
 	int	a;

@@ -16,7 +16,6 @@ CC				= 	clang
 CFLAGS			= 	-Wall -Werror -Wextra -g
 MLX_FLAGS		= 	-L. -lXext -L. -lX11 -L. -lm
 
-
 SRC_DIR			= 	sources
 SRC_FILES		=	so_long.c \
 					map_built.c \
@@ -33,6 +32,7 @@ SRC_DIR_BONUS	=	sources_bonus
 SRC_FILES_BONUS	=	so_long_bonus.c \
 					map_built_bonus.c \
 					map_validation_bonus.c \
+					map_validation_utils_bonus.c \
 					img_setup_bonus.c \
 					map_to_win_bonus.c \
 					game_setup_bonus.c \
@@ -115,11 +115,9 @@ sanitize:	$(LIBFT) $(MLX) $(OBJ) $(HEADER)
 
 valgrind: $(NAME)
 	make re
-	valgrind --leak-check=full --show-leak-kinds=all ./so_long ./maps/basic.ber
-
-	
+	valgrind --leak-check=full --show-leak-kinds=all ./so_long ./maps/basic3.ber
 
 valgrind_bonus: $(NAME_BONUS)
 	make re_bonus
-	valgrind --leak-check=full --show-leak-kinds=all ./so_long_bonus ./maps_bonus/basicblank.ber
+	valgrind --leak-check=full --show-leak-kinds=all ./so_long_bonus ./maps_bonus/basic_bonus3.ber
 

@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 11:08:44 by fausto            #+#    #+#             */
-/*   Updated: 2021/11/23 16:15:16 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:04:27 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	**map_built_bonus(t_data *game, char *file_path);
 
 int		map_validation_bonus(t_data *game);
 
-void	map_to_win_bonus(t_data *game);
+int		map_to_win_bonus(t_data *game);
 
 void	img_setup_bonus(t_data *game);
 
@@ -127,5 +127,7 @@ void	game_over(t_data *game);
 int		extension_validation(char *file);
 
 void	ft_clear_split(char **ptr);
+
+int		map_square(t_data *game);
 
 #endif
