@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:41 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/26 21:53:22 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:59:02 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int		win_events(t_data *game);
 
 int		game_exit(t_data *game);
 
-int	extension_validation(char *file);
+int		extension_validation(char *file);
 
 void	ft_clear_split(char **ptr);
 
-int	map_square(t_data *game);
+int		map_square(t_data *game);
 
 #endif

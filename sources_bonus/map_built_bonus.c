@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 18:53:08 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:57:50 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ static char	*add_line(char **temp)
 	return (*temp);
 }
 
-static char *parse_map(t_data *game)
+static char	*parse_map(t_data *game)
 {
 	char	*line;
 	char	*swap;
 	char	*temp;
-	
+
 	temp = ft_strdup("");
 	while (1)
 	{
