@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:41 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/26 21:28:07 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:53:22 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**map_built(t_data *game, char *flie_path);
 
 int		map_validation(t_data *game);
 
-void	map_to_win(t_data *game);
+int		map_to_win(t_data *game);
 
 int		key_events(int key, t_data *game);
 

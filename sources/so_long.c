@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/26 20:44:24 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:54:02 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	game_play(t_data *game)
 	game_setup(game);
 	mlx_hook(game->mlx_win, 2, 1L << 0, key_events, game);
 	mlx_hook(game->mlx_win, 17, 1L << 0, game_exit, game);
+	mlx_loop_hook(game->mlx_ptr, map_to_win, game);
 	mlx_loop(game->mlx_ptr);
 }
 
