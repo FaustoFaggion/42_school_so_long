@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 21:03:01 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/28 16:55:57 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	empty_line( char *temp)
 	i = 0;
 	if (temp[0] == '\n')
 	{
-		printf("MAP VALIDATION PROBLEM");
+		printf("Error\nMAP VALIDATION PROBLEM\n");
 		free(temp);
 		return (1);
 	}
@@ -30,7 +30,7 @@ static int	empty_line( char *temp)
 			if (temp[i + 1] == '\n' && temp [i + 2] == '1')
 			{
 				free(temp);
-				printf("MAP VALIDATION PROBLEM");
+				printf("Error\nMAP VALIDATION PROBLEM\n");
 				return (1);
 			}
 		}
@@ -46,7 +46,7 @@ static char	*add_line(char **temp)
 	char	*swap;
 
 	i = 0;
-	while ((*temp)[i] != '\n' && (*temp)[i] != '\0')
+	while ((*temp)[i] != '\n')
 		i++;
 	new = ft_calloc((i + 2), sizeof(char));
 	if (new == NULL)

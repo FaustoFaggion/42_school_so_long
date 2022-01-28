@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 12:00:33 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 21:18:38 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static int	position_validation(t_data *game)
 	return (0);
 }
 
-// -1 pois começa do 0.
-// x = 1 pois x = 0 está o score
 static int	wall_validation(t_data *game)
 {
 	int	x;
@@ -99,7 +97,7 @@ int	extension_validation(char *file)
 		return (1);
 	if (ft_strncmp(ext, ".ber", 5) == 0)
 		return (0);
-	printf("validation not ok bonus\n");
+	printf("Error\nextension not ok\n");
 	return (1);
 }
 
@@ -124,6 +122,6 @@ int	map_validation_bonus(t_data *game)
 	c = characters_validation(game);
 	if (a == 0 && b == 0 && c == 0 && i == 0)
 		return (0);
-	printf("MAP VALIDATION PROBLEM");
+	printf("Error\nMAP VALIDATION PROBLEM\n");
 	return (1);
 }

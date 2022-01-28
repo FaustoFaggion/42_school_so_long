@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 11:09:44 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/28 17:02:32 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		game.map = map_built(&game, argv[1]);
-		if (game.map == NULL || *game.map == NULL)
+		if (game.map == NULL)
 		{
 			ft_clear_split(game.map);
 			return (1);
@@ -51,6 +51,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
-		printf("Path to map not found!\n");
+		printf("ERROR\nPath to map not found!\n");
 	return (0);
 }

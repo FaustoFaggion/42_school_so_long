@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 12:00:39 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 21:13:01 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	extension_validation(char *file)
 		return (1);
 	if (ft_strncmp(ext, ".ber", 5) == 0)
 		return (0);
-	printf("extension not ok\n");
+	printf("ERROR\nextension not ok\n");
 	return (1);
 }
 
@@ -122,6 +122,6 @@ int	map_validation(t_data *game)
 	c = characters_validation(game);
 	if (a == 0 && b == 0 && c == 0 && i == 0)
 		return (0);
-	printf("MAP VALIDATION PROBLEM");
+	printf("ERROR\nMAP VALIDATION PROBLEM\n");
 	return (1);
 }

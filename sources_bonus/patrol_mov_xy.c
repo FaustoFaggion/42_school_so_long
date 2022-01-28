@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 10:35:49 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 12:22:55 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/28 17:30:22 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static int	xy_neg_free(t_data *game)
 	if (game->map[game->patrol_line][game->patrol_col - 1] != '1'
 		&& game->map[game->patrol_line][game->patrol_col - 1] != 'C'
 		&& game->map[game->patrol_line][game->patrol_col - 1] != 'v'
-		&& game->map[game->patrol_line][game->patrol_col - 1] != 'V')
+		&& game->map[game->patrol_line][game->patrol_col - 1] != 'V'
+		&& game->map[game->patrol_line][game->patrol_col - 1] != 'E')
 	{
 		if (game->map[game->patrol_line][game->patrol_col - 1] == 'P')
 			game_over(game);
@@ -26,7 +27,8 @@ static int	xy_neg_free(t_data *game)
 		return (0);
 	}
 	else if (game->map[game->patrol_line][game->patrol_col - 2] != '1'
-		&& game->map[game->patrol_line][game->patrol_col - 1] == 'C'
+		&& (game->map[game->patrol_line][game->patrol_col - 1] == 'C'
+		|| game->map[game->patrol_line][game->patrol_col - 1] == 'E')
 		&& (game->map[game->patrol_line][game->patrol_col - 2] == '0'
 		|| game->map[game->patrol_line][game->patrol_col - 2] == 'P'))
 	{
@@ -42,6 +44,7 @@ static int	xy_neg_free(t_data *game)
 static int	xy_neg_wall(t_data *game)
 {
 	if (game->map[game->patrol_line][game->patrol_col - 1] == '1'
+		&& game->map[game->patrol_line + 1][game->patrol_col] != 'E'
 		&& (game->map[game->patrol_line + 1][game->patrol_col] == '0'
 		|| game->map[game->patrol_line + 1][game->patrol_col] == 'P'))
 	{
@@ -52,6 +55,7 @@ static int	xy_neg_wall(t_data *game)
 		return (0);
 	}
 	else if (game->map[game->patrol_line][game->patrol_col - 1] == '1'
+		&& game->map[game->patrol_line - 1][game->patrol_col] != 'E'
 		&& (game->map[game->patrol_line - 1][game->patrol_col] == '0'
 		|| game->map[game->patrol_line - 1][game->patrol_col] == 'P'))
 	{
@@ -69,7 +73,8 @@ static int	xy_pos_free(t_data *game)
 	if (game->map[game->patrol_line][game->patrol_col + 1] != '1'
 		&& game->map[game->patrol_line][game->patrol_col + 1] != 'C'
 		&& game->map[game->patrol_line][game->patrol_col + 1] != 'v'
-		&& game->map[game->patrol_line][game->patrol_col + 1] != 'V')
+		&& game->map[game->patrol_line][game->patrol_col + 1] != 'V'
+		&& game->map[game->patrol_line][game->patrol_col + 1] != 'E')
 	{
 		if (game->map[game->patrol_line][game->patrol_col + 1] == 'P')
 			game_over(game);
@@ -78,7 +83,8 @@ static int	xy_pos_free(t_data *game)
 		return (0);
 	}
 	else if (game->map[game->patrol_line][game->patrol_col + 2] != '1'
-		&& game->map[game->patrol_line][game->patrol_col + 1] == 'C'
+		&& (game->map[game->patrol_line][game->patrol_col + 1] == 'C'
+		|| game->map[game->patrol_line][game->patrol_col + 1] == 'E')
 		&& (game->map[game->patrol_line][game->patrol_col + 2] == '0'
 		|| game->map[game->patrol_line][game->patrol_col + 2] == 'P'))
 	{
@@ -94,6 +100,7 @@ static int	xy_pos_free(t_data *game)
 static int	xy_pos_wall(t_data *game)
 {
 	if (game->map[game->patrol_line][game->patrol_col + 1] == '1'
+		&& game->map[game->patrol_line + 1][game->patrol_col] != 'E'
 		&& (game->map[game->patrol_line + 1][game->patrol_col] == '0'
 		|| game->map[game->patrol_line + 1][game->patrol_col] == 'P'))
 	{
@@ -104,6 +111,7 @@ static int	xy_pos_wall(t_data *game)
 		return (0);
 	}
 	else if (game->map[game->patrol_line][game->patrol_col + 1] == '1'
+		&& game->map[game->patrol_line - 1][game->patrol_col] != 'E'
 		&& (game->map[game->patrol_line - 1][game->patrol_col] == '0'
 		|| game->map[game->patrol_line - 1][game->patrol_col] == 'P'))
 	{

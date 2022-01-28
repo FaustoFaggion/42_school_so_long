@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 12:29:55 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/28 17:00:28 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
-		printf("Path to map not found!\n");
+		printf("Error\nPath to map not found!\n");
 	return (0);
 }
