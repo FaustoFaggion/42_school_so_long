@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:28 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/27 21:13:01 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/28 17:58:19 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	extension_validation(char *file)
 		return (1);
 	if (ft_strncmp(ext, ".ber", 5) == 0)
 		return (0);
-	printf("ERROR\nextension not ok\n");
+	printf("Error\nextension not ok\n");
 	return (1);
 }
 
@@ -106,7 +106,6 @@ int	map_validation(t_data *game)
 	int	a;
 	int	b;
 	int	c;
-	int	i;
 
 	game->map_e_count = 0;
 	game->map_s_count = 0;
@@ -114,14 +113,18 @@ int	map_validation(t_data *game)
 	game->map_p_count = 0;
 	game->map_height = 0;
 	game->map_width = (int)ft_strlen(game->map[0]);
-	i = map_square(game);
+	if (map_square(game) == 1)
+	{
+		printf("Error\nMAP VALIDATION PROBLEM\n");
+		return (1);
+	}
 	while (game->map[game->map_height])
 		game->map_height++;
 	a = position_validation(game);
 	b = wall_validation(game);
 	c = characters_validation(game);
-	if (a == 0 && b == 0 && c == 0 && i == 0)
+	if (a == 0 && b == 0 && c == 0)
 		return (0);
-	printf("ERROR\nMAP VALIDATION PROBLEM\n");
+	printf("Error\nMAP VALIDATION PROBLEM\n");
 	return (1);
 }

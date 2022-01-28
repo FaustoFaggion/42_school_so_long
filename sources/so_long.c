@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:35 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/28 17:02:32 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/28 18:01:11 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 
 	if (extension_validation(argv[1]) == 1)
 		return (1);
-	setbuf(stdout, NULL);
 	if (argc == 2)
 	{
 		game.map = map_built(&game, argv[1]);
