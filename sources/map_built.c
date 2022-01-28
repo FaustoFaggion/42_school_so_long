@@ -6,7 +6,7 @@
 /*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:21:15 by fausto            #+#    #+#             */
-/*   Updated: 2022/01/26 20:07:40 by fagiusep         ###   ########.fr       */
+/*   Updated: 2022/01/27 21:01:28 by fagiusep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,19 @@ int	empty_line( char *temp)
 	int	i;
 
 	i = 0;
+	if (temp[0] == '\n')
+	{
+		printf("MAP VALIDATION PROBLEM");
+		free(temp);
+		return (1);
+	}
 	while (temp[i] != '\0')
 	{
 		if (temp[i] == '\n')
 		{
 			if (temp[i + 1] == '\n' && temp [i + 2] == '1')
 			{
+				printf("MAP VALIDATION PROBLEM");
 				free(temp);
 				return (1);
 			}
